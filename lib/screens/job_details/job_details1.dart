@@ -288,7 +288,10 @@ class _JobDetails1State extends State<JobDetails1> {
               SizedBox(
                 height: 28.h,
               ),
-              Browse2HeadingRow(title: 'Applicant'),
+              Browse2HeadingRow(
+                title: 'Applicant',
+                onTap: () {},
+              ),
               // TODO
               SizedBox(
                 height: 28.h,
@@ -481,7 +484,10 @@ class _JobDetails1State extends State<JobDetails1> {
               SizedBox(
                 height: 28.h,
               ),
-              Browse2HeadingRow(title: 'Related Jobs'),
+              Browse2HeadingRow(
+                title: 'Related Jobs',
+                onTap: () {},
+              ),
               SizedBox(
                 height: 12.h,
               ),

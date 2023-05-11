@@ -102,6 +102,9 @@ class Browse2 extends StatelessWidget {
                 ),
                 Browse2HeadingRow(
                   title: 'Categories',
+                  onTap: () {
+                    Get.toNamed(Routes.categoriesRoute);
+                  },
                 ),
                 SizedBox(
                   height: 12.h,
@@ -143,6 +146,7 @@ class Browse2 extends StatelessWidget {
                 ),
                 Browse2HeadingRow(
                   title: 'Featured Jobs',
+                  onTap: () {},
                 ),
                 SizedBox(
                   height: 12.h,
@@ -168,13 +172,11 @@ class Browse2 extends StatelessWidget {
                 SizedBox(
                   height: 28.h,
                 ),
-                GestureDetector(
+                Browse2HeadingRow(
+                  title: 'Recent Posts',
                   onTap: () {
                     Get.toNamed(Routes.browse3Route);
                   },
-                  child: Browse2HeadingRow(
-                    title: 'Recent Posts',
-                  ),
                 ),
                 SizedBox(
                   height: 12.h,

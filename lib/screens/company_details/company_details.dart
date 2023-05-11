@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 import 'package:jobfinder/helpers/app_assets.dart';
 import 'package:jobfinder/helpers/app_colors.dart';
 import 'package:jobfinder/helpers/app_text_style.dart';
+import 'package:jobfinder/screens/components/applied_job_information_row.dart';
 import 'package:jobfinder/screens/components/browse2HeadingRow.dart';
 import 'package:jobfinder/screens/components/common_button.dart';
 import 'package:jobfinder/screens/components/featured_job_widget.dart';
@@ -38,10 +40,15 @@ class CompanyDetails extends StatelessWidget {
                     ),
                     Row(
                       children: [
-                        Icon(
-                          Icons.arrow_back_ios_new_rounded,
-                          color: AppColors.kWhiteColor,
-                          size: 21.w,
+                        GestureDetector(
+                          onTap: () {
+                            Get.back();
+                          },
+                          child: Icon(
+                            Icons.arrow_back_ios_new_rounded,
+                            color: AppColors.kWhiteColor,
+                            size: 21.w,
+                          ),
                         ),
                         const Spacer(),
                         Icon(
@@ -186,6 +193,7 @@ class CompanyDetails extends StatelessWidget {
                     ),
                     Browse2HeadingRow(
                       title: 'Images',
+                      onTap: () {},
                       padding: 0.w,
                     ),
                     SizedBox(
@@ -377,6 +385,7 @@ class CompanyDetails extends StatelessWidget {
                     ),
                     Browse2HeadingRow(
                       title: 'Videos',
+                      onTap: () {},
                       padding: 0.w,
                     ),
                     SizedBox(
@@ -501,6 +510,7 @@ class CompanyDetails extends StatelessWidget {
                     ),
                     Browse2HeadingRow(
                       title: 'Available Jobs',
+                      onTap: () {},
                       padding: 0.w,
                     ),
                     SizedBox(

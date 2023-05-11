@@ -114,7 +114,7 @@ class _ChooseLanguageState extends State<ChooseLanguage> {
               ),
               CommonButton(
                   onTap: () {
-                    Get.toNamed(Routes.personalInfoRoute);
+                    Get.toNamed(Routes.jobPreferencesCategoriesRoute);
                   },
                   text: 'Select',
                   isItalicText: false,

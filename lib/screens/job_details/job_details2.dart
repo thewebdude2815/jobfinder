@@ -4,6 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:jobfinder/helpers/app_assets.dart';
 import 'package:jobfinder/helpers/app_colors.dart';
 import 'package:jobfinder/helpers/app_text_style.dart';
+import 'package:jobfinder/screens/components/applied_job_information_row.dart';
 import 'package:jobfinder/screens/components/browse2HeadingRow.dart';
 import 'package:jobfinder/screens/components/common_appbar.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -532,7 +533,10 @@ class _JobDetails2State extends State<JobDetails2> {
               SizedBox(
                 height: 28.h,
               ),
-              Browse2HeadingRow(title: 'Related Jobs'),
+              Browse2HeadingRow(
+                title: 'Related Jobs',
+                onTap: () {},
+              ),
               SizedBox(
                 height: 12.h,
               ),

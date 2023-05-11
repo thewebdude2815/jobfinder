@@ -53,6 +53,12 @@ class AppAssets {
   static const heartIcon = '$iconAddress/heart.svg';
   static const commentIcon = '$iconAddress/comment.svg';
   static const share2Icon = '$iconAddress/share2.svg';
+  static const maleIcon = '$iconAddress/male.svg';
+  static const femaleIcon = '$iconAddress/female.svg';
+  static const anyGenderIcon = '$iconAddress/anyGender.svg';
+  static const dealIcon = '$iconAddress/deal.svg';
+  static const addCameraIcon = '$iconAddress/addCamera.svg';
+  static const doneIcon = '$iconAddress/done.svg';
 
   // images
   static const onboardingA = '$imagesAddress/onboardingA.png';

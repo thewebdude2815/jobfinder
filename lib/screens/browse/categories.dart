@@ -88,6 +88,7 @@ class Categories extends StatelessWidget {
               ),
               Browse2HeadingRow(
                 title: 'Categories',
+                onTap: () {},
                 padding: 0.w,
               ),
               SizedBox(

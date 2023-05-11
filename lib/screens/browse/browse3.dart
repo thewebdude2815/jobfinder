@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import 'package:jobfinder/helpers/app_assets.dart';
 import 'package:jobfinder/helpers/app_colors.dart';
 import 'package:jobfinder/helpers/app_text_style.dart';
+import 'package:jobfinder/helpers/routes.dart';
 import 'package:jobfinder/screens/components/browse2HeadingRow.dart';
 import 'package:jobfinder/screens/components/common_textfield.dart';
 import 'package:jobfinder/screens/components/related_jobs_1_widget.dart';
@@ -95,6 +97,9 @@ class Browse3 extends StatelessWidget {
                     ),
                     Browse2HeadingRow(
                       title: 'Featured Jobs',
+                      onTap: () {
+                        Get.toNamed(Routes.browse4Route);
+                      },
                       padding: 0.w,
                     ),
                     SizedBox(
@@ -124,6 +129,7 @@ class Browse3 extends StatelessWidget {
               ),
               Browse2HeadingRow(
                 title: 'Popular Companies',
+                onTap: () {},
               ),
               SizedBox(
                 height: 12.h,
@@ -132,12 +138,17 @@ class Browse3 extends StatelessWidget {
                 padding: EdgeInsets.only(left: 16.w),
                 scrollDirection: Axis.horizontal,
                 child: Row(
-                  children: const [
-                    Browse3PopularCompanies(
+                  children: [
+                    GestureDetector(
+                      onTap: () {
+                        Get.toNamed(Routes.companyDetailsRoute);
+                      },
+                      child: const Browse3PopularCompanies(
+                          title: 'product design', jobs: '392 jobs'),
+                    ),
+                    const Browse3PopularCompanies(
                         title: 'product design', jobs: '392 jobs'),
-                    Browse3PopularCompanies(
-                        title: 'product design', jobs: '392 jobs'),
-                    Browse3PopularCompanies(
+                    const Browse3PopularCompanies(
                         title: 'product design', jobs: '392 jobs')
                   ],
                 ),
@@ -147,6 +158,7 @@ class Browse3 extends StatelessWidget {
               ),
               Browse2HeadingRow(
                 title: 'Featured Cities',
+                onTap: () {},
               ),
               SizedBox(
                 height: 12.h,
@@ -189,6 +201,7 @@ class Browse3 extends StatelessWidget {
               ),
               Browse2HeadingRow(
                 title: 'Recent Interviews',
+                onTap: () {},
               ),
               SizedBox(
                 height: 12.h,

@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import 'package:jobfinder/helpers/app_assets.dart';
 import 'package:jobfinder/helpers/app_colors.dart';
 import 'package:jobfinder/helpers/app_text_style.dart';
+import 'package:jobfinder/helpers/routes.dart';
 import 'package:jobfinder/screens/components/broswe_4_top_companies_widget.dart';
 import 'package:jobfinder/screens/components/browse2HeadingRow.dart';
 import 'package:jobfinder/screens/components/browse_4_categories_widget.dart';
@@ -86,18 +88,28 @@ class Browse4 extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: 16.w),
               child: Row(
                 children: [
-                  const Browse4MainBoxes(
-                    color: AppColors.kMainColor,
-                    title: 'Jobs Applied',
-                    count: '17',
+                  GestureDetector(
+                    onTap: () {
+                      Get.toNamed(Routes.jobsRoute);
+                    },
+                    child: const Browse4MainBoxes(
+                      color: AppColors.kMainColor,
+                      title: 'Jobs Applied',
+                      count: '17',
+                    ),
                   ),
                   SizedBox(
                     width: 16.w,
                   ),
-                  const Browse4MainBoxes(
-                    color: AppColors.kBlue2Color,
-                    title: 'Job List Saved',
-                    count: '17',
+                  GestureDetector(
+                    onTap: () {
+                      Get.toNamed(Routes.jobsRoute);
+                    },
+                    child: const Browse4MainBoxes(
+                      color: AppColors.kBlue2Color,
+                      title: 'Job List Saved',
+                      count: '17',
+                    ),
                   ),
                 ],
               ),
@@ -105,7 +117,10 @@ class Browse4 extends StatelessWidget {
             SizedBox(
               height: 28.h,
             ),
-            Browse2HeadingRow(title: 'Categories'),
+            Browse2HeadingRow(
+              title: 'Categories',
+              onTap: () {},
+            ),
             SizedBox(
               height: 12.h,
             ),
@@ -229,7 +244,10 @@ class Browse4 extends StatelessWidget {
             SizedBox(
               height: 28.h,
             ),
-            Browse2HeadingRow(title: 'Top Companies'),
+            Browse2HeadingRow(
+              title: 'Top Companies',
+              onTap: () {},
+            ),
             SizedBox(
               height: 12.h,
             ),
@@ -251,7 +269,10 @@ class Browse4 extends StatelessWidget {
             SizedBox(
               height: 28.h,
             ),
-            Browse2HeadingRow(title: 'Featured Jobs'),
+            Browse2HeadingRow(
+              title: 'Featured Jobs',
+              onTap: () {},
+            ),
             SizedBox(
               height: 12.h,
             ),

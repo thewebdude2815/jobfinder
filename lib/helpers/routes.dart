@@ -26,10 +26,19 @@ import 'package:jobfinder/screens/messages/messages_details.dart';
 import 'package:jobfinder/screens/onboarding/onboarding.dart';
 import 'package:jobfinder/screens/onboarding/onboarding2.dart';
 import 'package:jobfinder/screens/onboarding/onboarding3.dart';
+import 'package:jobfinder/screens/payment/payment.dart';
+import 'package:jobfinder/screens/payment/premium_payment.dart';
 import 'package:jobfinder/screens/select_option/select_option.dart';
 import 'package:jobfinder/screens/auth/signin/signin.dart';
 import 'package:jobfinder/screens/splash/splash.dart';
 import 'package:jobfinder/screens/start_information/interests.dart';
+import 'package:jobfinder/screens/start_information/job_preferences/almost_done_add_picture.dart';
+import 'package:jobfinder/screens/start_information/job_preferences/done.dart';
+import 'package:jobfinder/screens/start_information/job_preferences/job_information.dart';
+import 'package:jobfinder/screens/start_information/job_preferences/job_preferences.dart';
+import 'package:jobfinder/screens/start_information/job_preferences/salary_range.dart';
+import 'package:jobfinder/screens/start_information/job_preferences/set_address.dart';
+import 'package:jobfinder/screens/start_information/job_preferences/vacancies.dart';
 import 'package:jobfinder/screens/start_information/personal_info/education.dart';
 import 'package:jobfinder/screens/start_information/personal_info/experience.dart';
 import 'package:jobfinder/screens/start_information/personal_info/job_preferences.dart';
@@ -75,6 +84,15 @@ class Routes {
   static String followerRoute = '/follower';
   static String profileRoute = '/profile';
   static String filterRoute = '/filter';
+  static String jobPreferencesCategoriesRoute = '/jobPreferencesCategories';
+  static String salaryRangeRoute = '/salaryRange';
+  static String vacanciesRoute = '/vacancies';
+  static String jobInformationRoute = '/jobInformation';
+  static String almostDoneAddPictureRoute = '/almostDoneAddPicture';
+  static String setAddressRoute = '/setAddress';
+  static String doneRoute = '/done';
+  static String paymentRoute = '/payment';
+  static String paymentPremiumRoute = '/paymentPremium';
 
   static List<GetPage> getPages = [
     GetPage(
@@ -224,6 +242,42 @@ class Routes {
     GetPage(
       name: interestsRoute,
       page: () => const Interests(),
+    ),
+    GetPage(
+      name: jobPreferencesCategoriesRoute,
+      page: () => const JobPreferencesCategories(),
+    ),
+    GetPage(
+      name: salaryRangeRoute,
+      page: () => const SalaryRange(),
+    ),
+    GetPage(
+      name: vacanciesRoute,
+      page: () => const Vacancies(),
+    ),
+    GetPage(
+      name: jobInformationRoute,
+      page: () => const JobInformation(),
+    ),
+    GetPage(
+      name: almostDoneAddPictureRoute,
+      page: () => const AlmostDoneAddPicture(),
+    ),
+    GetPage(
+      name: setAddressRoute,
+      page: () => const SetAddress(),
+    ),
+    GetPage(
+      name: doneRoute,
+      page: () => const DoneConfirmation(),
+    ),
+    GetPage(
+      name: paymentRoute,
+      page: () => const Payment(),
+    ),
+    GetPage(
+      name: paymentPremiumRoute,
+      page: () => const PremiumPayment(),
     ),
   ];
 }
