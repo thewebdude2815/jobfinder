@@ -62,23 +62,28 @@ class Browse2 extends StatelessWidget {
                         ],
                       ),
                       const Spacer(),
-                      Column(
-                        children: [
-                          SvgPicture.asset(
-                            AppAssets.bellIcon,
-                            color: AppColors.kGrayColor,
-                            height: 19.h,
-                            width: 19.w,
-                          ),
-                          SizedBox(
-                            height: 4.h,
-                          ),
-                          Text(
-                            'Notifications',
-                            style: AppTextStyle.bodyNormal10
-                                .copyWith(color: AppColors.kGrayColor),
-                          )
-                        ],
+                      GestureDetector(
+                        onTap: () {
+                          Get.toNamed(Routes.notificationRoute);
+                        },
+                        child: Column(
+                          children: [
+                            SvgPicture.asset(
+                              AppAssets.bellIcon,
+                              color: AppColors.kGrayColor,
+                              height: 19.h,
+                              width: 19.w,
+                            ),
+                            SizedBox(
+                              height: 4.h,
+                            ),
+                            Text(
+                              'Notifications',
+                              style: AppTextStyle.bodyNormal10
+                                  .copyWith(color: AppColors.kGrayColor),
+                            )
+                          ],
+                        ),
                       ),
                       SvgPicture.asset(
                         AppAssets.searchIcon,

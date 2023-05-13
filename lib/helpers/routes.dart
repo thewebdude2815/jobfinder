@@ -23,6 +23,7 @@ import 'package:jobfinder/screens/job_details/job_details2.dart';
 import 'package:jobfinder/screens/jobs/applied_jobs_details.dart';
 import 'package:jobfinder/screens/jobs/jobs.dart';
 import 'package:jobfinder/screens/messages/messages_details.dart';
+import 'package:jobfinder/screens/notifications/notifications.dart';
 import 'package:jobfinder/screens/onboarding/onboarding.dart';
 import 'package:jobfinder/screens/onboarding/onboarding2.dart';
 import 'package:jobfinder/screens/onboarding/onboarding3.dart';
@@ -93,6 +94,7 @@ class Routes {
   static String doneRoute = '/done';
   static String paymentRoute = '/payment';
   static String paymentPremiumRoute = '/paymentPremium';
+  static String notificationRoute = '/notification';
 
   static List<GetPage> getPages = [
     GetPage(
@@ -278,6 +280,10 @@ class Routes {
     GetPage(
       name: paymentPremiumRoute,
       page: () => const PremiumPayment(),
+    ),
+    GetPage(
+      name: notificationRoute,
+      page: () => const Notifications(),
     ),
   ];
 }

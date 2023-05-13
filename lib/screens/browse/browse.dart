@@ -38,11 +38,16 @@ class Browse extends StatelessWidget {
                     Row(
                       children: [
                         const Spacer(),
-                        SvgPicture.asset(
-                          AppAssets.bellIcon,
-                          height: 24.h,
-                          width: 20.w,
-                          color: AppColors.kGrayColor5,
+                        GestureDetector(
+                          onTap: () {
+                            Get.toNamed(Routes.notificationRoute);
+                          },
+                          child: SvgPicture.asset(
+                            AppAssets.bellIcon,
+                            height: 24.h,
+                            width: 20.w,
+                            color: AppColors.kGrayColor5,
+                          ),
                         )
                       ],
                     ),

@@ -2,9 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import 'package:jobfinder/helpers/app_assets.dart';
 import 'package:jobfinder/helpers/app_colors.dart';
 import 'package:jobfinder/helpers/app_text_style.dart';
+import 'package:jobfinder/helpers/routes.dart';
 import 'package:jobfinder/screens/components/common_appbar.dart';
 import 'package:jobfinder/screens/components/settings_option_widget.dart';
 import 'package:jobfinder/screens/components/settings_switch_widgets.dart';
@@ -63,9 +65,14 @@ class _SettingsState extends State<Settings> {
                   SizedBox(
                     height: 12.h,
                   ),
-                  const SettingsOptionWidget(
-                    icon: AppAssets.bellIcon,
-                    text: 'Notifications',
+                  GestureDetector(
+                    onTap: () {
+                      Get.toNamed(Routes.notificationRoute);
+                    },
+                    child: const SettingsOptionWidget(
+                      icon: AppAssets.bellIcon,
+                      text: 'Notifications',
+                    ),
                   ),
                   SizedBox(
                     height: 12.h,

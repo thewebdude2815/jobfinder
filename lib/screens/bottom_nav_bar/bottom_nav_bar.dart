@@ -9,7 +9,6 @@ import 'package:jobfinder/screens/account/account.dart';
 import 'package:jobfinder/screens/browse/browse.dart';
 import 'package:jobfinder/screens/jobs/jobs.dart';
 import 'package:jobfinder/screens/messages/messages.dart';
-import 'package:jobfinder/screens/notifications/notifications.dart';
 
 class MainBottomNavBarScreen extends StatefulWidget {
   const MainBottomNavBarScreen({Key? key}) : super(key: key);
@@ -23,8 +22,8 @@ class _MainBottomNavBarScreenState extends State<MainBottomNavBarScreen> {
   List<Widget> screens = [
     const Browse(),
     const Jobs(),
+    Container(),
     const Messages(),
-    const Notifications(),
     const Account(),
   ];
   @override
@@ -74,20 +73,20 @@ class _MainBottomNavBarScreenState extends State<MainBottomNavBarScreen> {
               ),
             ),
             BottomNavigationBarItem(
-              label: 'Message',
+              label: 'Post',
               icon: Padding(
                 padding: EdgeInsets.only(bottom: 4.h),
-                child: SvgPicture.asset(AppAssets.chatIcon,
+                child: SvgPicture.asset(AppAssets.postJobIcon,
                     color: myIndex == 2
                         ? AppColors.kMainColor
                         : AppColors.kGrayColor6),
               ),
             ),
             BottomNavigationBarItem(
-              label: 'Notifications',
+              label: 'Message',
               icon: Padding(
                 padding: EdgeInsets.only(bottom: 4.h),
-                child: SvgPicture.asset(AppAssets.bellIcon,
+                child: SvgPicture.asset(AppAssets.chatIcon,
                     color: myIndex == 3
                         ? AppColors.kMainColor
                         : AppColors.kGrayColor6),

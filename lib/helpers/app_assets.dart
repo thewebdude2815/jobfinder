@@ -59,6 +59,7 @@ class AppAssets {
   static const dealIcon = '$iconAddress/deal.svg';
   static const addCameraIcon = '$iconAddress/addCamera.svg';
   static const doneIcon = '$iconAddress/done.svg';
+  static const postJobIcon = '$iconAddress/postJob.svg';
 
   // images
   static const onboardingA = '$imagesAddress/onboardingA.png';
