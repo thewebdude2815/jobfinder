@@ -44,9 +44,13 @@ class _CommonDropdownButtonState extends State<CommonDropdownButton> {
                     .copyWith(color: AppColors.kBlackColor),
               )
             : const SizedBox(),
-        SizedBox(
-          height: 8.h,
-        ),
+        widget.label != null
+            ? SizedBox(
+                height: 8.h,
+              )
+            : SizedBox(
+                height: 0.h,
+              ),
         DropdownButtonFormField2(
           iconStyleData: IconStyleData(
               iconEnabledColor: widget.isFilled != null

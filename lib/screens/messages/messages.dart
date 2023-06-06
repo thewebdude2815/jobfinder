@@ -29,9 +29,41 @@ class Messages extends StatelessWidget {
                       width: double.infinity,
                       padding: EdgeInsets.symmetric(horizontal: 16.w),
                       child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           const Spacer(),
+                          Image.asset(
+                            AppAssets.gTranslate,
+                            height: 28.h,
+                            width: 26.w,
+                          ),
+                          SizedBox(
+                            width: 8.w,
+                          ),
+                          GestureDetector(
+                            onTap: () {
+                              Get.toNamed(Routes.notificationRoute);
+                            },
+                            child: Column(
+                              children: [
+                                SvgPicture.asset(
+                                  AppAssets.bellIcon,
+                                  color: AppColors.kGrayColor,
+                                  height: 19.h,
+                                  width: 19.w,
+                                ),
+                                SizedBox(
+                                  height: 4.h,
+                                ),
+                                Text(
+                                  'Notifications',
+                                  style: AppTextStyle.bodyNormal10
+                                      .copyWith(color: AppColors.kGrayColor),
+                                )
+                              ],
+                            ),
+                          ),
                           SvgPicture.asset(
                             AppAssets.searchIcon,
                             height: 19.h,

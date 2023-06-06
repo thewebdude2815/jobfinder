@@ -9,11 +9,9 @@ import 'package:jobfinder/helpers/app_text_style.dart';
 import 'package:jobfinder/helpers/routes.dart';
 import 'package:jobfinder/screens/components/browse2HeadingRow.dart';
 import 'package:jobfinder/screens/components/category_widget_border2.dart';
-import 'package:jobfinder/screens/components/featured_job_banner.dart';
 import 'package:jobfinder/screens/components/featured_job_widget.dart';
 import 'package:jobfinder/screens/components/large_job_image_banner.dart';
 import 'package:jobfinder/screens/components/recent_posts_banner2.dart';
-import 'package:jobfinder/screens/components/saved_jobs_widget.dart';
 
 class Browse2 extends StatelessWidget {
   const Browse2({super.key});
@@ -85,11 +83,16 @@ class Browse2 extends StatelessWidget {
                           ],
                         ),
                       ),
-                      SvgPicture.asset(
-                        AppAssets.searchIcon,
-                        color: AppColors.kBlackColor,
-                        height: 19.h,
-                        width: 19.w,
+                      GestureDetector(
+                        onTap: () {
+                          Get.toNamed(Routes.searchRoute);
+                        },
+                        child: SvgPicture.asset(
+                          AppAssets.searchIcon,
+                          color: AppColors.kBlackColor,
+                          height: 19.h,
+                          width: 19.w,
+                        ),
                       )
                     ],
                   ),
@@ -101,7 +104,12 @@ class Browse2 extends StatelessWidget {
                     onTap: () {
                       Get.toNamed(Routes.companyDetailsRoute);
                     },
-                    child: const LargeJobImageBanner()),
+                    child: Padding(
+                      padding: EdgeInsets.only(
+                        left: 16.w,
+                      ),
+                      child: const LargeJobImageBanner(),
+                    )),
                 SizedBox(
                   height: 28.h,
                 ),
@@ -151,7 +159,9 @@ class Browse2 extends StatelessWidget {
                 ),
                 Browse2HeadingRow(
                   title: 'Featured Jobs',
-                  onTap: () {},
+                  onTap: () {
+                    Get.toNamed(Routes.browse2DetailsRoute);
+                  },
                 ),
                 SizedBox(
                   height: 12.h,
@@ -159,7 +169,7 @@ class Browse2 extends StatelessWidget {
                 // const FeaturedJobBanner(),
                 Container(
                   padding: EdgeInsets.only(left: 16.w),
-                  height: 195.h,
+                  height: 205.h,
                   child: ListView.builder(
                       shrinkWrap: true,
                       itemCount: 5,
@@ -180,19 +190,24 @@ class Browse2 extends StatelessWidget {
                 Browse2HeadingRow(
                   title: 'Recent Posts',
                   onTap: () {
-                    Get.toNamed(Routes.browse3Route);
+                    Get.toNamed(Routes.browse2DetailsRoute);
                   },
                 ),
                 SizedBox(
                   height: 12.h,
                 ),
-                const RecentPostsBanner2(
-                    companyName: 'Best Studio',
-                    jobTitle: '3D Animator',
-                    location: '349 Irvine, CA',
-                    jobType: 'Fulltime',
-                    pay: '\$90K/hr',
-                    time: '2 hours ago')
+                GestureDetector(
+                  onTap: () {
+                    Get.toNamed(Routes.jobDetails1Route);
+                  },
+                  child: const RecentPostsBanner2(
+                      companyName: 'Best Studio',
+                      jobTitle: '3D Animator',
+                      location: '349 Irvine, CA',
+                      jobType: 'Fulltime',
+                      pay: '\$90K/hr',
+                      time: '2 hours ago'),
+                )
                 // ListView.builder(
                 //     shrinkWrap: true,
                 //     itemCount: 5,

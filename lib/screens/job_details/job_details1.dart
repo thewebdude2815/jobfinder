@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/get_navigation.dart';
 import 'package:jobfinder/helpers/app_assets.dart';
 import 'package:jobfinder/helpers/app_colors.dart';
 import 'package:jobfinder/helpers/app_text_style.dart';
+import 'package:jobfinder/helpers/routes.dart';
 import 'package:jobfinder/screens/components/browse2HeadingRow.dart';
 import 'package:jobfinder/screens/components/common_appbar.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -469,13 +472,66 @@ class _JobDetails1State extends State<JobDetails1> {
                       width: 343.w,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(8.r)),
-                      child: const GoogleMap(
-                        initialCameraPosition: CameraPosition(
-                          target: LatLng(37.7749, -122.4194), // San Francisco
-                          zoom: 10,
-                        ),
-                        compassEnabled: true,
-                        zoomControlsEnabled: false,
+                      child: Stack(
+                        children: [
+                          const GoogleMap(
+                            initialCameraPosition: CameraPosition(
+                              target:
+                                  LatLng(37.7749, -122.4194), // San Francisco
+                              zoom: 10,
+                            ),
+                            compassEnabled: true,
+                            zoomControlsEnabled: false,
+                          ),
+                          Container(
+                            height: 40.h,
+                            padding: EdgeInsets.symmetric(horizontal: 16.w),
+                            child: Row(
+                              children: [
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      'Distance',
+                                      style: AppTextStyle.bodyNormal13.copyWith(
+                                          color: AppColors.kGrayColor2),
+                                    ),
+                                    Text(
+                                      '100 Km',
+                                      style: AppTextStyle.bodyNormal13.copyWith(
+                                          color: AppColors.kGrayColor2,
+                                          fontWeight: FontWeight.w700),
+                                    )
+                                  ],
+                                ),
+                                SizedBox(
+                                  width: 32.w,
+                                ),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      'Time',
+                                      style: AppTextStyle.bodyNormal13.copyWith(
+                                          color: AppColors.kGrayColor2),
+                                    ),
+                                    Text(
+                                      '25 Min',
+                                      style: AppTextStyle.bodyNormal13.copyWith(
+                                          color: AppColors.kGrayColor2,
+                                          fontWeight: FontWeight.w700),
+                                    )
+                                  ],
+                                ),
+                                const Spacer(),
+                                SvgPicture.asset(
+                                  AppAssets.directionIcon,
+                                  height: 24.h,
+                                )
+                              ],
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ],
@@ -493,8 +549,8 @@ class _JobDetails1State extends State<JobDetails1> {
               ),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 16.w),
-                child: Row(
-                  children: const [
+                child: const Row(
+                  children: [
                     RelatedJobs1Widget(
                       company: 'Brave Studio',
                       title: '3D Animator',
@@ -527,7 +583,9 @@ class _JobDetails1State extends State<JobDetails1> {
       bottomNavigationBar: Padding(
         padding: EdgeInsets.all(8.h),
         child: CommonButton(
-            onTap: () {},
+            onTap: () {
+              Get.toNamed(Routes.applyJobsRoute);
+            },
             text: 'Apply Now',
             isItalicText: true,
             isFilled: true,

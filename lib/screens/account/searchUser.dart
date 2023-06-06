@@ -15,23 +15,24 @@ class SearchUser extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF2F2F2),
+      backgroundColor: AppColors.kWhiteColor,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
             children: [
               Container(
                 padding: EdgeInsets.symmetric(vertical: 12.h, horizontal: 16.w),
-                decoration: const BoxDecoration(
-                  border:
-                      Border(top: BorderSide(color: AppColors.kGrayColor14)),
-                ),
                 child: Row(
                   children: [
-                    Icon(
-                      Icons.arrow_back_ios_rounded,
-                      color: AppColors.kBlackColor,
-                      size: 16.w,
+                    GestureDetector(
+                      onTap: () {
+                        Get.back();
+                      },
+                      child: Icon(
+                        Icons.arrow_back_ios_rounded,
+                        color: AppColors.kBlackColor,
+                        size: 16.w,
+                      ),
                     ),
                     SizedBox(
                       width: 6.w,
@@ -56,6 +57,8 @@ class SearchUser extends StatelessWidget {
                               hintStyle: AppTextStyle.bodyNormal13.copyWith(
                                   color: AppColors.kGrayColor15,
                                   fontSize: 14.sp),
+                              // contentPadding:
+                              //     EdgeInsets.symmetric(vertical: 12.h),
                             ),
                           ),
                           const Spacer(),

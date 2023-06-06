@@ -6,7 +6,9 @@ import 'package:jobfinder/helpers/app_assets.dart';
 import 'package:jobfinder/helpers/app_colors.dart';
 import 'package:jobfinder/helpers/app_text_style.dart';
 import 'package:jobfinder/screens/account/account.dart';
+import 'package:jobfinder/screens/account/posts.dart';
 import 'package:jobfinder/screens/browse/browse.dart';
+import 'package:jobfinder/screens/browse/browse2.dart';
 import 'package:jobfinder/screens/jobs/jobs.dart';
 import 'package:jobfinder/screens/messages/messages.dart';
 
@@ -21,8 +23,8 @@ class _MainBottomNavBarScreenState extends State<MainBottomNavBarScreen> {
   int myIndex = 0;
   List<Widget> screens = [
     const Browse(),
-    const Jobs(),
-    Container(),
+    const Browse2(),
+    const Posts(),
     const Messages(),
     const Account(),
   ];
@@ -73,10 +75,10 @@ class _MainBottomNavBarScreenState extends State<MainBottomNavBarScreen> {
               ),
             ),
             BottomNavigationBarItem(
-              label: 'Post',
+              label: 'Daily Life',
               icon: Padding(
                 padding: EdgeInsets.only(bottom: 4.h),
-                child: SvgPicture.asset(AppAssets.postJobIcon,
+                child: SvgPicture.asset(AppAssets.dailyLifeIcon,
                     color: myIndex == 2
                         ? AppColors.kMainColor
                         : AppColors.kGrayColor6),
@@ -96,7 +98,7 @@ class _MainBottomNavBarScreenState extends State<MainBottomNavBarScreen> {
               label: 'Account',
               icon: Padding(
                 padding: EdgeInsets.only(bottom: 4.h),
-                child: SvgPicture.asset(AppAssets.userIcon,
+                child: SvgPicture.asset(AppAssets.profileIcon,
                     color: myIndex == 4
                         ? AppColors.kMainColor
                         : AppColors.kGrayColor6),

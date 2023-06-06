@@ -8,6 +8,7 @@ import 'package:jobfinder/helpers/app_colors.dart';
 import 'package:jobfinder/helpers/app_text_style.dart';
 import 'package:jobfinder/helpers/routes.dart';
 import 'package:jobfinder/screens/components/account_heading_with_edit_button.dart';
+import 'package:jobfinder/screens/components/expandable_text.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:sticky_headers/sticky_headers/widget.dart';
 
@@ -54,11 +55,16 @@ class _AccountState extends State<Account> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        SvgPicture.asset(
-                          AppAssets.settingsIcon,
-                          color: AppColors.kBlackColor,
-                          height: 20.h,
-                          width: 20.w,
+                        GestureDetector(
+                          onTap: () {
+                            Get.toNamed(Routes.settingsRoute);
+                          },
+                          child: SvgPicture.asset(
+                            AppAssets.settingsIcon,
+                            color: AppColors.kBlackColor,
+                            height: 20.h,
+                            width: 20.w,
+                          ),
                         ),
                         GestureDetector(
                           onTap: () {
@@ -174,10 +180,10 @@ class _AccountState extends State<Account> {
                     SizedBox(
                       height: 12.h,
                     ),
-                    Text(
-                      'I know I can help your company create stunning visuals. As someone who has worked in marketing and graphic design for over a decade, I know what brands need to capture their audiences attention. With my pow…. read more',
-                      style: AppTextStyle.bodyNormal15
-                          .copyWith(color: AppColors.kBlackColor),
+                    const ExpandableText(
+                      max: 0.6,
+                      text:
+                          'I know I can help your company create stunning visuals. As someone who has worked in marketing and graphic design for over a decade, I know what brands need to capture their audiences attention. With my pow',
                     ),
                     SizedBox(
                       height: 18.h,
@@ -323,6 +329,9 @@ class _AccountState extends State<Account> {
                         );
                       }).toList(),
                     ),
+                    SizedBox(
+                      height: 16.h,
+                    ),
                     const AccountHeadingWithEditButton(
                       heading: 'My Resume',
                     ),
@@ -372,6 +381,9 @@ class _AccountState extends State<Account> {
                           )
                         ],
                       ),
+                    ),
+                    SizedBox(
+                      height: 20.h,
                     )
                   ],
                 ),

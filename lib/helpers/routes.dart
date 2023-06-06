@@ -1,15 +1,19 @@
 import 'package:get/get_navigation/src/routes/get_route.dart';
+import 'package:jobfinder/screens/account/change_password.dart';
+import 'package:jobfinder/screens/account/change_password_success.dart';
 import 'package:jobfinder/screens/account/follower.dart';
 import 'package:jobfinder/screens/account/posts.dart';
 import 'package:jobfinder/screens/account/profile.dart';
 import 'package:jobfinder/screens/account/searchUser.dart';
 import 'package:jobfinder/screens/account/settings.dart';
 import 'package:jobfinder/screens/apply_jobs/apply_jobs.dart';
+import 'package:jobfinder/screens/apply_jobs/apply_jobs_success.dart';
 import 'package:jobfinder/screens/auth/forgot_password/forgot_password.dart';
 import 'package:jobfinder/screens/auth/signup/signup.dart';
 import 'package:jobfinder/screens/auth/verification_code/verification_code.dart';
 import 'package:jobfinder/screens/bottom_nav_bar/bottom_nav_bar.dart';
 import 'package:jobfinder/screens/browse/browse2.dart';
+import 'package:jobfinder/screens/browse/browse2_details.dart';
 import 'package:jobfinder/screens/browse/browse3.dart';
 import 'package:jobfinder/screens/browse/browse4.dart';
 import 'package:jobfinder/screens/browse/categories.dart';
@@ -17,6 +21,11 @@ import 'package:jobfinder/screens/browse/search.dart';
 import 'package:jobfinder/screens/choose_language/choose_language.dart';
 import 'package:jobfinder/screens/choose_location/choose_location.dart';
 import 'package:jobfinder/screens/company_details/company_details.dart';
+import 'package:jobfinder/screens/company_information/company_business_type.dart';
+import 'package:jobfinder/screens/company_information/company_done.dart';
+import 'package:jobfinder/screens/company_information/company_information.dart';
+import 'package:jobfinder/screens/company_information/company_location.dart';
+import 'package:jobfinder/screens/company_information/company_preferences.dart';
 import 'package:jobfinder/screens/filter/filter.dart';
 import 'package:jobfinder/screens/job_details/job_details1.dart';
 import 'package:jobfinder/screens/job_details/job_details2.dart';
@@ -24,6 +33,7 @@ import 'package:jobfinder/screens/jobs/applied_jobs_details.dart';
 import 'package:jobfinder/screens/jobs/jobs.dart';
 import 'package:jobfinder/screens/messages/messages_details.dart';
 import 'package:jobfinder/screens/notifications/notifications.dart';
+import 'package:jobfinder/screens/notifications/notifications_settings.dart';
 import 'package:jobfinder/screens/onboarding/onboarding.dart';
 import 'package:jobfinder/screens/onboarding/onboarding2.dart';
 import 'package:jobfinder/screens/onboarding/onboarding3.dart';
@@ -69,6 +79,7 @@ class Routes {
   static String settingsRoute = '/settings';
   static String messageDetailsRoute = '/messageDetails';
   static String browse2Route = '/browse2';
+  static String browse2DetailsRoute = '/browse2Details';
   static String browse3Route = '/browse3';
   static String browse4Route = '/browse4';
   static String chooseLocationRoute = '/chooseLocation';
@@ -95,6 +106,15 @@ class Routes {
   static String paymentRoute = '/payment';
   static String paymentPremiumRoute = '/paymentPremium';
   static String notificationRoute = '/notification';
+  static String companyInfoRoute = '/companyInfo';
+  static String companyLocationRoute = '/companyLocation';
+  static String companyBusinessTypeRoute = '/companyBusinessType';
+  static String companyPreferencesRoute = '/companyPreferences';
+  static String companyDoneRoute = '/companyDone';
+  static String applyJobSuccessRoute = '/applyJobSuccess';
+  static String notificationsSettingsRoute = '/notificationsSettings';
+  static String changePasswordRoute = '/changePassword';
+  static String changePasswordSuccessRoute = '/changePasswordSuccess';
 
   static List<GetPage> getPages = [
     GetPage(
@@ -284,6 +304,46 @@ class Routes {
     GetPage(
       name: notificationRoute,
       page: () => const Notifications(),
+    ),
+    GetPage(
+      name: companyInfoRoute,
+      page: () => const CompanyInformation(),
+    ),
+    GetPage(
+      name: companyLocationRoute,
+      page: () => const CompanyLocation(),
+    ),
+    GetPage(
+      name: companyBusinessTypeRoute,
+      page: () => const CompanyBusinessType(),
+    ),
+    GetPage(
+      name: companyPreferencesRoute,
+      page: () => const CompanyPreferences(),
+    ),
+    GetPage(
+      name: companyDoneRoute,
+      page: () => const CompanyDoneConfirmation(),
+    ),
+    GetPage(
+      name: browse2DetailsRoute,
+      page: () => const Browse2Details(),
+    ),
+    GetPage(
+      name: applyJobSuccessRoute,
+      page: () => const ApplyJobSuccess(),
+    ),
+    GetPage(
+      name: notificationsSettingsRoute,
+      page: () => const NotificationsSettings(),
+    ),
+    GetPage(
+      name: changePasswordRoute,
+      page: () => const ChangePassword(),
+    ),
+    GetPage(
+      name: changePasswordSuccessRoute,
+      page: () => const ChangePasswordSuccess(),
     ),
   ];
 }

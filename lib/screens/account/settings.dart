@@ -58,16 +58,21 @@ class _SettingsState extends State<Settings> {
               ListView(
                 shrinkWrap: true,
                 children: [
-                  const SettingsOptionWidget(
-                    icon: AppAssets.lockIcon,
-                    text: 'Change Password',
+                  GestureDetector(
+                    onTap: () {
+                      Get.toNamed(Routes.changePasswordRoute);
+                    },
+                    child: const SettingsOptionWidget(
+                      icon: AppAssets.lockIcon,
+                      text: 'Change Password',
+                    ),
                   ),
                   SizedBox(
                     height: 12.h,
                   ),
                   GestureDetector(
                     onTap: () {
-                      Get.toNamed(Routes.notificationRoute);
+                      Get.toNamed(Routes.notificationsSettingsRoute);
                     },
                     child: const SettingsOptionWidget(
                       icon: AppAssets.bellIcon,

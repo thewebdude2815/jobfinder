@@ -24,7 +24,10 @@ class UsersWidget extends StatelessWidget {
           color: AppColors.kWhiteColor,
           borderRadius: BorderRadius.circular(8.r),
           boxShadow: [
-            BoxShadow(color: AppColors.kBlackColor.withOpacity(0.8))
+            BoxShadow(
+                color: AppColors.kBlackColor.withOpacity(0.08),
+                spreadRadius: 2,
+                blurRadius: 10)
           ]),
       child: Row(
         children: [
@@ -85,7 +88,7 @@ class UsersWidget extends StatelessWidget {
             child: Container(
               padding: EdgeInsets.symmetric(vertical: 4.h, horizontal: 12.w),
               decoration: BoxDecoration(
-                color: AppColors.kPurple3Color,
+                color: AppColors.kMainColor,
                 borderRadius: BorderRadius.circular(18.r),
               ),
               child: Text(

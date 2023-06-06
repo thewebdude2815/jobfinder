@@ -54,6 +54,14 @@ class Categories extends StatelessWidget {
                     ],
                   ),
                   const Spacer(),
+                  Image.asset(
+                    AppAssets.gTranslate,
+                    height: 28.h,
+                    width: 26.w,
+                  ),
+                  SizedBox(
+                    width: 8.w,
+                  ),
                   GestureDetector(
                     onTap: () {
                       Get.toNamed(Routes.notificationRoute);

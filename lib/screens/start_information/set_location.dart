@@ -73,7 +73,7 @@ class SetLocation extends StatelessWidget {
               Text(
                 'or set your location manually',
                 style: AppTextStyle.bodyNormal17
-                    .copyWith(color: AppColors.kBlackColor),
+                    .copyWith(color: AppColors.kMainColor),
               ),
             ],
           ),

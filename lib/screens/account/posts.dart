@@ -7,8 +7,10 @@ import 'package:jobfinder/helpers/app_assets.dart';
 import 'package:jobfinder/helpers/app_colors.dart';
 import 'package:jobfinder/helpers/app_text_style.dart';
 import 'package:jobfinder/helpers/routes.dart';
+import 'package:jobfinder/screens/components/comment_box_posts.dart';
 import 'package:jobfinder/screens/components/common_appbar.dart';
 import 'package:jobfinder/screens/components/common_textfield.dart';
+import 'package:share_plus/share_plus.dart';
 
 class Posts extends StatelessWidget {
   const Posts({super.key});
@@ -16,6 +18,7 @@ class Posts extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.kWhiteColor,
       appBar: CustomAppBar(showBackButton: true),
       body: SafeArea(
         child: SingleChildScrollView(
@@ -40,15 +43,10 @@ class Posts extends StatelessWidget {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            GestureDetector(
-                              onTap: () {
-                                Get.toNamed(Routes.searchUserRoute);
-                              },
-                              child: Text(
-                                'vardoli',
-                                style: AppTextStyle.bodyNormal15.copyWith(
-                                  color: AppColors.kBlackColor,
-                                ),
+                            Text(
+                              'vardoli',
+                              style: AppTextStyle.bodyNormal15.copyWith(
+                                color: AppColors.kBlackColor,
                               ),
                             ),
                             SizedBox(
@@ -65,16 +63,21 @@ class Posts extends StatelessWidget {
                           ],
                         ),
                         const Spacer(),
-                        Container(
-                          padding: EdgeInsets.symmetric(
-                              vertical: 4.h, horizontal: 8.w),
-                          decoration: BoxDecoration(
-                              color: AppColors.kBlueColor,
-                              borderRadius: BorderRadius.circular(16.r)),
-                          child: Text(
-                            'Follow',
-                            style: AppTextStyle.bodyNormal13
-                                .copyWith(color: AppColors.kWhiteColor),
+                        GestureDetector(
+                          onTap: () {
+                            Get.toNamed(Routes.searchUserRoute);
+                          },
+                          child: Container(
+                            padding: EdgeInsets.symmetric(
+                                vertical: 4.h, horizontal: 8.w),
+                            decoration: BoxDecoration(
+                                color: AppColors.kBlueColor,
+                                borderRadius: BorderRadius.circular(16.r)),
+                            child: Text(
+                              'Follow',
+                              style: AppTextStyle.bodyNormal13
+                                  .copyWith(color: AppColors.kWhiteColor),
+                            ),
                           ),
                         ),
                         SizedBox(
@@ -205,10 +208,15 @@ class Posts extends StatelessWidget {
                                 fontSize: 12.sp, color: AppColors.kBlackColor),
                           ),
                           const Spacer(),
-                          SvgPicture.asset(
-                            AppAssets.share2Icon,
-                            height: 19.h,
-                            width: 17.5.w,
+                          GestureDetector(
+                            onTap: () {
+                              onShare(context);
+                            },
+                            child: SvgPicture.asset(
+                              AppAssets.share2Icon,
+                              height: 19.h,
+                              width: 17.5.w,
+                            ),
                           )
                         ],
                       ),
@@ -263,7 +271,7 @@ class Posts extends StatelessWidget {
               width: 6.w,
             ),
             Container(
-              width: 300.w,
+              width: 290.w,
               height: 36.h,
               decoration: BoxDecoration(
                   border: Border.all(color: AppColors.kGrayColor14),
@@ -272,7 +280,7 @@ class Posts extends StatelessWidget {
               child: Row(
                 children: [
                   SizedBox(
-                    width: 220.w,
+                    width: 200.w,
                     child: CommonTextFieldNew(
                       onSaved: (e) {},
                       validator: (e) {},
@@ -300,101 +308,11 @@ class Posts extends StatelessWidget {
       ),
     );
   }
-}
 
-class CommentBoxPosts extends StatelessWidget {
-  const CommentBoxPosts({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(bottom: 12.h, right: 16.w, left: 16.w),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              CircleAvatar(
-                radius: 15.r,
-                backgroundColor: AppColors.kBlueColor,
-              ),
-              SizedBox(
-                width: 8.w,
-              ),
-              SizedBox(
-                width: 260.w,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Row(
-                          children: [
-                            Text(
-                              'Dadok Kim',
-                              style: AppTextStyle.bodyNormal13.copyWith(
-                                  color: AppColors.kBlackColor,
-                                  fontSize: 12.sp,
-                                  fontWeight: FontWeight.w700),
-                            ),
-                            SizedBox(
-                              width: 4.w,
-                            ),
-                            Text(
-                              '2 minutes ago',
-                              style: AppTextStyle.bodyNormal10.copyWith(
-                                  color: AppColors.kGrayColor15,
-                                  fontWeight: FontWeight.w400),
-                            ),
-                          ],
-                        ),
-                        Icon(
-                          Icons.more_horiz,
-                          color: AppColors.kBlackColor,
-                          size: 15.5.w,
-                        )
-                      ],
-                    ),
-                    SizedBox(
-                      height: 8.h,
-                    ),
-                    Text(
-                      'Comment content Comment content',
-                      style: AppTextStyle.bodyNormal13.copyWith(
-                          color: const Color(0xFF434343), fontSize: 12.sp),
-                    ),
-                    SizedBox(
-                      height: 8.h,
-                    ),
-                    Row(
-                      children: [
-                        Text(
-                          'like13',
-                          style: AppTextStyle.bodyNormal13.copyWith(
-                              color: AppColors.kGrayColor15, fontSize: 12.sp),
-                        ),
-                        SizedBox(
-                          width: 12.w,
-                        ),
-                        Text(
-                          'Reply',
-                          style: AppTextStyle.bodyNormal13.copyWith(
-                              color: AppColors.kGrayColor15, fontSize: 12.sp),
-                        )
-                      ],
-                    )
-                  ],
-                ),
-              ),
-            ],
-          ),
-        ],
-      ),
-    );
+  void onShare(BuildContext context) async {
+    final box = context.findRenderObject() as RenderBox?;
+    await Share.share('Share Post',
+        subject: 'Share Post',
+        sharePositionOrigin: box!.localToGlobal(Offset.zero) & box.size);
   }
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:jobfinder/screens/account/searchUser.dart';
+import 'package:jobfinder/helpers/app_colors.dart';
 import 'package:jobfinder/screens/components/common_appbar.dart';
 import 'package:jobfinder/screens/components/users_widget.dart';
 
@@ -10,7 +10,7 @@ class Followers extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF2F2F2),
+      backgroundColor: AppColors.kWhiteColor,
       appBar: CustomAppBar(
           showBackButton: true, centerTitle: true, title: 'Followers'),
       body: SafeArea(

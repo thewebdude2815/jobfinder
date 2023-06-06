@@ -12,9 +12,15 @@ import 'package:jobfinder/screens/components/common_textfield.dart';
 import 'package:jobfinder/screens/components/method_of_payment_widget.dart';
 import 'package:jobfinder/screens/components/payment_widget.dart';
 
-class Payment extends StatelessWidget {
+class Payment extends StatefulWidget {
   const Payment({super.key});
 
+  @override
+  State<Payment> createState() => _PaymentState();
+}
+
+class _PaymentState extends State<Payment> {
+  String selectedPlan = '24';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -56,30 +62,54 @@ class Payment extends StatelessWidget {
                     SizedBox(
                       height: 8.h,
                     ),
-                    const PaymentWidget(
+                    PaymentWidget(
                       days: '24',
                       price: '9',
+                      selectedValue: selectedPlan,
+                      onTap: () {
+                        setState(() {
+                          selectedPlan = '24';
+                        });
+                      },
                     ),
                     SizedBox(
                       height: 16.h,
                     ),
-                    const PaymentWidget(
+                    PaymentWidget(
                       days: '3',
                       price: '29',
+                      selectedValue: selectedPlan,
+                      onTap: () {
+                        setState(() {
+                          selectedPlan = '3';
+                        });
+                      },
                     ),
                     SizedBox(
                       height: 16.h,
                     ),
-                    const PaymentWidget(
+                    PaymentWidget(
                       days: '7',
                       price: '50',
+                      selectedValue: selectedPlan,
+                      onTap: () {
+                        setState(() {
+                          selectedPlan = '7';
+                        });
+                      },
                     ),
                     SizedBox(
                       height: 16.h,
                     ),
-                    const PaymentWidget(
+                    PaymentWidget(
                       days: '14',
                       price: '90',
+                      selectedValue: selectedPlan,
+                      onTap: () {
+                        setState(() {
+                          selectedPlan = '14';
+                        });
+                      },
                     ),
                   ],
                 ),

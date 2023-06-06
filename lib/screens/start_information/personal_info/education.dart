@@ -9,7 +9,6 @@ import 'package:jobfinder/helpers/app_text_style.dart';
 import 'package:jobfinder/helpers/routes.dart';
 import 'package:jobfinder/screens/components/common_appbar.dart';
 import 'package:jobfinder/screens/components/common_button.dart';
-import 'package:jobfinder/screens/components/common_dropdown.dart';
 import 'package:jobfinder/screens/components/common_textfield_with_label.dart';
 import 'package:jobfinder/screens/components/custom_stepper.dart';
 import 'package:syncfusion_flutter_datepicker/datepicker.dart';

@@ -25,7 +25,7 @@ class _LargeJobImageBannerState extends State<LargeJobImageBanner> {
         itemBuilder: (context, index, realIndex) {
           return Container(
             width: 326.w,
-            // margin: EdgeInsets.only(right: 16.w),
+            margin: EdgeInsets.only(right: 16.w),
             decoration: BoxDecoration(
               image: const DecorationImage(
                   image: AssetImage(AppAssets.office), fit: BoxFit.cover),

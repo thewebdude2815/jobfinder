@@ -22,10 +22,14 @@ class Browse2HeadingRow extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
-          Text(
-            title,
-            style: AppTextStyle.bodySemiBold17.copyWith(
-                color: AppColors.kBlackColor, fontWeight: FontWeight.w700),
+          Expanded(
+            child: Text(
+              title,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: AppTextStyle.bodySemiBold17.copyWith(
+                  color: AppColors.kBlackColor, fontWeight: FontWeight.w700),
+            ),
           ),
           GestureDetector(
             onTap: onTap,

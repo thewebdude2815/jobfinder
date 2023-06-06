@@ -26,6 +26,7 @@ class CustomTabBarWidget extends StatelessWidget {
             border: Border(
                 bottom: selectedValue == text
                     ? BorderSide(
+                        width: 2,
                         color: isSearchPage
                             ? AppColors.kMainColor
                             : Colors.transparent)

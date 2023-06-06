@@ -10,6 +10,7 @@ import 'package:jobfinder/screens/components/browse2HeadingRow.dart';
 import 'package:jobfinder/screens/components/common_button.dart';
 import 'package:jobfinder/screens/components/featured_job_widget.dart';
 import 'package:jobfinder/screens/components/social_media_widget.dart';
+import 'package:jobfinder/screens/components/video_small_widget.dart';
 import 'package:jobfinder/screens/jobs/applied_jobs_details.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 
@@ -392,79 +393,14 @@ class CompanyDetails extends StatelessWidget {
                       height: 12.h,
                     ),
                     SingleChildScrollView(
-                      padding: EdgeInsets.only(left: 16.w),
                       scrollDirection: Axis.horizontal,
                       child: Row(
                         children: [
-                          Container(
-                            height: 86.h,
-                            width: 138.w,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(8.r),
-                                image: const DecorationImage(
-                                    image: AssetImage(
-                                      AppAssets.office,
-                                    ),
-                                    fit: BoxFit.cover)),
-                            child: Container(
-                              height: 86.h,
-                              width: 138.w,
-                              decoration: BoxDecoration(
-                                color: AppColors.kWhiteColor.withOpacity(0.6),
-                                borderRadius: BorderRadius.circular(8.r),
-                              ),
-                              child: Center(
-                                child: CircleAvatar(
-                                  radius: 17.r,
-                                  child: CircleAvatar(
-                                      radius: 16.r,
-                                      backgroundColor: AppColors.kBlackColor
-                                          .withOpacity(0.29),
-                                      child: Icon(
-                                        Icons.play_arrow,
-                                        color: AppColors.kWhiteColor,
-                                        size: 16.w,
-                                      )),
-                                ),
-                              ),
-                            ),
-                          ),
+                          const VideoSmallWidget(),
                           SizedBox(
                             width: 16.w,
                           ),
-                          Container(
-                            height: 86.h,
-                            width: 138.w,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(8.r),
-                                image: const DecorationImage(
-                                    image: AssetImage(
-                                      AppAssets.office,
-                                    ),
-                                    fit: BoxFit.cover)),
-                            child: Container(
-                              height: 86.h,
-                              width: 138.w,
-                              decoration: BoxDecoration(
-                                color: AppColors.kWhiteColor.withOpacity(0.6),
-                                borderRadius: BorderRadius.circular(8.r),
-                              ),
-                              child: Center(
-                                child: CircleAvatar(
-                                  radius: 17.r,
-                                  child: CircleAvatar(
-                                      radius: 16.r,
-                                      backgroundColor: AppColors.kBlackColor
-                                          .withOpacity(0.29),
-                                      child: Icon(
-                                        Icons.play_arrow,
-                                        color: AppColors.kWhiteColor,
-                                        size: 16.w,
-                                      )),
-                                ),
-                              ),
-                            ),
-                          ),
+                          const VideoSmallWidget(),
                         ],
                       ),
                     ),
@@ -518,7 +454,7 @@ class CompanyDetails extends StatelessWidget {
                     ),
                     SizedBox(
                       // padding: EdgeInsets.only(left: 16.w),
-                      height: 194.h,
+                      height: 204.h,
                       child: ListView.builder(
                           shrinkWrap: true,
                           itemCount: 5,

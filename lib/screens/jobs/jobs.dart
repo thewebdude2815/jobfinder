@@ -37,13 +37,49 @@ class _JobsState extends State<Jobs> {
                     width: double.infinity,
                     padding: EdgeInsets.symmetric(horizontal: 16.w),
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         SvgPicture.asset(
                           AppAssets.filterIcon,
                           height: 20.h,
                           width: 16.w,
                           color: AppColors.kBlackColor,
+                        ),
+                        const Spacer(),
+                        Image.asset(
+                          AppAssets.gTranslate,
+                          height: 28.h,
+                          width: 26.w,
+                        ),
+                        SizedBox(
+                          width: 8.w,
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            Get.toNamed(Routes.notificationRoute);
+                          },
+                          child: Column(
+                            children: [
+                              SvgPicture.asset(
+                                AppAssets.bellIcon,
+                                color: AppColors.kGrayColor,
+                                height: 19.h,
+                                width: 19.w,
+                              ),
+                              SizedBox(
+                                height: 4.h,
+                              ),
+                              Text(
+                                'Notifications',
+                                style: AppTextStyle.bodyNormal10
+                                    .copyWith(color: AppColors.kGrayColor),
+                              )
+                            ],
+                          ),
+                        ),
+                        SizedBox(
+                          width: 8.w,
                         ),
                         SvgPicture.asset(
                           AppAssets.searchIcon,

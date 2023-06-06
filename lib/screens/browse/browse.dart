@@ -9,7 +9,11 @@ import 'package:jobfinder/helpers/app_assets.dart';
 import 'package:jobfinder/helpers/app_colors.dart';
 import 'package:jobfinder/helpers/app_text_style.dart';
 import 'package:jobfinder/helpers/routes.dart';
+import 'package:jobfinder/screens/browse/browse3.dart';
 import 'package:jobfinder/screens/components/banner_slider.dart';
+import 'package:jobfinder/screens/components/browse2HeadingRow.dart';
+import 'package:jobfinder/screens/components/browse_3_popular_companies.dart';
+import 'package:jobfinder/screens/components/browse_4_main_boxes.dart';
 import 'package:jobfinder/screens/components/browse_job_widget.dart';
 import 'package:jobfinder/screens/components/common_dropdown.dart';
 import 'package:jobfinder/screens/components/custom_tab_bar_widget.dart';
@@ -37,6 +41,13 @@ class Browse extends StatelessWidget {
                     ),
                     Row(
                       children: [
+                        Text(
+                          'Find your dream job in',
+                          style: GoogleFonts.abel(
+                              fontSize: 28.sp,
+                              fontWeight: FontWeight.w400,
+                              color: AppColors.kWhiteColor),
+                        ),
                         const Spacer(),
                         GestureDetector(
                           onTap: () {
@@ -52,27 +63,9 @@ class Browse extends StatelessWidget {
                       ],
                     ),
                     SizedBox(
-                      height: 2.h,
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        Get.toNamed(Routes.browse2Route);
-                      },
-                      child: Text(
-                        'Find your dream job in',
-                        style: GoogleFonts.abel(
-                            fontSize: 28.sp,
-                            fontWeight: FontWeight.w400,
-                            color: AppColors.kWhiteColor),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 8.h,
-                    ),
-                    SizedBox(
                       width: 223.w,
                       child: CommonDropdownButton(
-                        items: ["Seoul", "London"],
+                        items: const ["Seoul", "London"],
                         isFilled: false,
                         onSaved: (e) {},
                         onChange: (e) {},
@@ -166,14 +159,50 @@ class Browse extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(
-                height: 18.h,
+              Image.asset(
+                AppAssets.banner,
+                width: 375.w,
+                height: 139.w,
+                fit: BoxFit.cover,
               ),
               Container(
                 padding: EdgeInsets.symmetric(horizontal: 16.w),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    SizedBox(
+                      height: 16.h,
+                    ),
+                    Row(
+                      children: [
+                        GestureDetector(
+                          onTap: () {
+                            Get.toNamed(Routes.jobsRoute);
+                          },
+                          child: const Browse4MainBoxes(
+                            color: AppColors.kMainColor,
+                            title: 'Jobs Applied',
+                            count: '17',
+                          ),
+                        ),
+                        SizedBox(
+                          width: 16.w,
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            Get.toNamed(Routes.jobsRoute);
+                          },
+                          child: const Browse4MainBoxes(
+                            color: AppColors.kBlue2Color,
+                            title: 'Job List Saved',
+                            count: '17',
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 16.h,
+                    ),
                     Text(
                       'Recent Posts',
                       style: AppTextStyle.bodySemiBold17.copyWith(
@@ -184,6 +213,77 @@ class Browse extends StatelessWidget {
                       height: 12.h,
                     ),
                     const CustomBannerSlider(),
+                    SizedBox(
+                      height: 16.h,
+                    ),
+                    Browse2HeadingRow(
+                      title: 'Which city you would like to live in?',
+                      onTap: () {},
+                      padding: 0.w,
+                    ),
+                    SizedBox(
+                      height: 12.h,
+                    ),
+                    GridView(
+                      shrinkWrap: true,
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: 2,
+                              crossAxisSpacing: 16,
+                              mainAxisSpacing: 16),
+                      physics: const NeverScrollableScrollPhysics(),
+                      children: const [
+                        FeaturedCitiesWidget(
+                          city: 'DANANG',
+                          country: 'Vietnam',
+                          image: AppAssets.office,
+                        ),
+                        FeaturedCitiesWidget(
+                          city: 'DANANG',
+                          country: 'Vietnam',
+                          image: AppAssets.office,
+                        ),
+                        FeaturedCitiesWidget(
+                          city: 'DANANG',
+                          country: 'Vietnam',
+                          image: AppAssets.office,
+                        ),
+                        FeaturedCitiesWidget(
+                          city: 'DANANG',
+                          country: 'Vietnam',
+                          image: AppAssets.office,
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 16.h,
+                    ),
+                    Browse2HeadingRow(
+                      title: 'Popular Companies',
+                      onTap: () {},
+                      padding: 0.w,
+                    ),
+                    SizedBox(
+                      height: 12.h,
+                    ),
+                    SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
+                        children: [
+                          GestureDetector(
+                            onTap: () {
+                              Get.toNamed(Routes.companyDetailsRoute);
+                            },
+                            child: const Browse3PopularCompanies(
+                                title: 'product design', jobs: '392 jobs'),
+                          ),
+                          const Browse3PopularCompanies(
+                              title: 'product design', jobs: '392 jobs'),
+                          const Browse3PopularCompanies(
+                              title: 'product design', jobs: '392 jobs')
+                        ],
+                      ),
+                    ),
                     SizedBox(
                       height: 16.h,
                     ),

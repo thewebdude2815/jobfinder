@@ -5,6 +5,8 @@ class AppAssets {
   static const logoIcon = '$iconAddress/logo.svg';
   static const backButtonSvg = '$iconAddress/backButton.svg';
   static const userIcon = '$iconAddress/user.svg';
+  static const profileIcon = '$iconAddress/profile.svg';
+  static const directionIcon = '$iconAddress/direction.svg';
   static const checkIcon = '$iconAddress/check.svg';
   static const caseIcon = '$iconAddress/case.svg';
   static const fbIcon = '$iconAddress/fb.svg';
@@ -60,10 +62,14 @@ class AppAssets {
   static const addCameraIcon = '$iconAddress/addCamera.svg';
   static const doneIcon = '$iconAddress/done.svg';
   static const postJobIcon = '$iconAddress/postJob.svg';
+  static const dailyLifeIcon = '$iconAddress/dailyLife.svg';
 
   // images
   static const onboardingA = '$imagesAddress/onboardingA.png';
   static const onboardingB = '$imagesAddress/onboardingB.png';
   static const onboardingC = '$imagesAddress/onboardingC.png';
   static const office = '$imagesAddress/office.png';
+  static const korea = '$imagesAddress/korea.jpg';
+  static const gTranslate = '$imagesAddress/gtranslate.png';
+  static const banner = '$imagesAddress/banner.png';
 }

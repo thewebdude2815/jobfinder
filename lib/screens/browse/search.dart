@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:jobfinder/helpers/app_assets.dart';
 import 'package:jobfinder/helpers/app_colors.dart';
 import 'package:jobfinder/helpers/app_text_style.dart';
-import 'package:jobfinder/screens/browse/browse.dart';
 import 'package:jobfinder/screens/components/browse_job_widget.dart';
 import 'package:jobfinder/screens/components/common_textfield.dart';
 import 'package:jobfinder/screens/components/custom_tab_bar_widget.dart';

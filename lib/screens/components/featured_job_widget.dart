@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:jobfinder/helpers/app_assets.dart';
 import 'package:jobfinder/helpers/app_colors.dart';
 import 'package:jobfinder/helpers/app_text_style.dart';
 
@@ -30,13 +32,22 @@ class FeaturedJobsWidget extends StatelessWidget {
         // mainAxisAlignment: MainAxisAlignment.end,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Align(
-            alignment: Alignment.centerRight,
-            child: Icon(
-              Icons.bookmark,
-              color: AppColors.kRedColor,
-              size: 20.h,
-            ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              CircleAvatar(
+                radius: 12.r,
+                backgroundImage: AssetImage(AppAssets.korea),
+              ),
+              SizedBox(
+                width: 4.w,
+              ),
+              Icon(
+                Icons.bookmark,
+                color: AppColors.kRedColor,
+                size: 20.h,
+              ),
+            ],
           ),
           Row(
             children: [

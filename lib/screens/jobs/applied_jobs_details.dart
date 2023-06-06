@@ -137,7 +137,7 @@ class _AppliedJobsDetailsState extends State<AppliedJobsDetails> {
               padding: EdgeInsets.only(top: 4.h, right: 16.w),
               child: Icon(
                 Icons.more_horiz_rounded,
-                color: AppColors.kGrayColor6,
+                color: AppColors.kBlackColor,
                 size: 20.w,
               ),
             )

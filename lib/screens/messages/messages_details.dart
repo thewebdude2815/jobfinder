@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import 'package:jobfinder/helpers/app_assets.dart';
 import 'package:jobfinder/helpers/app_colors.dart';
 import 'package:jobfinder/helpers/app_text_style.dart';
@@ -20,10 +21,15 @@ class MessagesDetails extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
               child: Row(
                 children: [
-                  Icon(
-                    Icons.arrow_back_ios,
-                    color: AppColors.kBlackColor,
-                    size: 21.h,
+                  GestureDetector(
+                    onTap: () {
+                      Get.back();
+                    },
+                    child: Icon(
+                      Icons.arrow_back_ios,
+                      color: AppColors.kBlackColor,
+                      size: 21.h,
+                    ),
                   ),
                   SizedBox(
                     width: 16.w,
@@ -75,6 +81,14 @@ class MessagesDetails extends StatelessWidget {
                   const Spacer(),
                   Row(
                     children: [
+                      Image.asset(
+                        AppAssets.gTranslate,
+                        height: 28.h,
+                        width: 26.w,
+                      ),
+                      SizedBox(
+                        width: 16.w,
+                      ),
                       SvgPicture.asset(
                         AppAssets.videoIcon,
                         width: 20.w,

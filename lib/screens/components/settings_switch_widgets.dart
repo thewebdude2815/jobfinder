@@ -32,6 +32,8 @@ class _SettingsSwitchWidgetsState extends State<SettingsSwitchWidgets> {
                 .copyWith(color: AppColors.kBlackColor),
           ),
           CupertinoSwitch(
+            trackColor: AppColors.kMainColor,
+            activeColor: AppColors.kMainColor,
             value: _lights,
             onChanged: (bool value) {
               setState(() {
