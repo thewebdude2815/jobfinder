@@ -92,6 +92,10 @@ class _DailyLifeHomeState extends State<DailyLifeHome> {
             SizedBox(
               height: 20.h,
             ),
+            const DailyLifeFeedWithImageWidget(),
+            SizedBox(
+              height: 20.h,
+            ),
             const DailyLifeFeedWithoutImageWidget(),
           ],
         ),

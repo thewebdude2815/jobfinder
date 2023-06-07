@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -25,192 +26,379 @@ class _ComposeDailyLifeState extends State<ComposeDailyLife> {
   ];
   String currentSelected = '';
   bool isPosted = false;
+  bool iscancled = false;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: AppColors.kWhiteColor,
-      appBar: CustomAppBar(showBackButton: true, actions: [
-        SvgPicture.asset(
-          AppAssets.searchIcon,
-          height: 20.h,
-        ),
-        SizedBox(
-          width: 16.w,
-        ),
-        SvgPicture.asset(
-          AppAssets.bellIcon,
-          height: 20.h,
-        ),
-        SizedBox(
-          width: 16.w,
-        ),
-      ]),
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              Container(
-                padding: EdgeInsets.only(left: 8.w),
-                height: 50.h,
-                child: ListView.builder(
-                    shrinkWrap: true,
-                    scrollDirection: Axis.horizontal,
-                    itemCount: catList.length,
-                    itemBuilder: (_, index) {
-                      return ComposeCategoryChip(
-                          text: catList[index],
-                          currentSelected: currentSelected,
-                          index: index,
-                          onTap: () {
-                            setState(() {
-                              currentSelected = catList[index];
-                            });
-                          });
-                    }),
+    return WillPopScope(
+      onWillPop: () async {
+        if (isPosted == true) {
+          return true;
+        } else {
+          cupertinoBottomSheetShow(context);
+          return false;
+        }
+      },
+      child: Scaffold(
+        backgroundColor: AppColors.kWhiteColor,
+        appBar: CustomAppBar(
+            onLeadingTap: () {
+              isPosted
+                  ? Navigator.pop(context)
+                  : cupertinoBottomSheetShow(context);
+            },
+            showBackButton: true,
+            actions: [
+              SvgPicture.asset(
+                AppAssets.searchIcon,
+                height: 20.h,
               ),
-              const Divider(
-                color: AppColors.kGrayColor3,
+              SizedBox(
+                width: 16.w,
               ),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20.w),
-                child: Column(
-                  children: [
-                    SizedBox(
-                      height: 20.h,
-                    ),
-                    Row(
-                      children: [
-                        Container(
-                          padding: EdgeInsets.symmetric(
-                              vertical: 6.h, horizontal: 10.w),
-                          decoration: BoxDecoration(
-                              color: AppColors.kRedColor,
-                              borderRadius: BorderRadius.circular(12.r)),
-                          child: Text(
-                            'Restaurant',
-                            style: AppTextStyle.bodyNormal10
-                                .copyWith(color: AppColors.kWhiteColor),
-                          ),
-                        ),
-                        const Spacer(),
-                        SvgPicture.asset(
-                          AppAssets.location2Icon,
-                          height: 24.h,
-                        ),
-                        SizedBox(
-                          width: 20.w,
-                        ),
-                        SvgPicture.asset(
-                          AppAssets.video2Icon,
-                          height: 24.h,
-                        ),
-                        SizedBox(
-                          width: 20.w,
-                        ),
-                        SvgPicture.asset(
-                          AppAssets.imageIcon,
-                          height: 24.h,
-                        ),
-                        SizedBox(
-                          width: 20.w,
-                        ),
-                        SvgPicture.asset(
-                          AppAssets.zoomIcon,
-                          height: 24.h,
-                        ),
-                        SizedBox(
-                          height: 20.h,
-                        ),
-                      ],
-                    ),
-                    CommonTextFieldNew(
-                        onSaved: (e) {},
-                        validator: (e) {
-                          return null;
-                        },
-                        disableBorder: true,
-                        contentPadding: EdgeInsets.symmetric(vertical: 30.h),
-                        maxLines: 3,
-                        hintText: 'Enter Text Here',
-                        filled: false),
-                    SizedBox(
-                      height: 20.h,
-                    ),
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(12.r),
-                      child: Image.asset(
-                        AppAssets.office,
-                        height: 272.h,
-                        width: 319.w,
-                        fit: BoxFit.cover,
+              SvgPicture.asset(
+                AppAssets.bellIcon,
+                height: 20.h,
+              ),
+              SizedBox(
+                width: 16.w,
+              ),
+            ]),
+        body: SafeArea(
+          child: isPosted
+              ////////////////////////////////////////////////////////////////////////////////
+              ///////////////////////////////////////////////////////////////////////////////////
+              ///////////////////////////////////////////////////////////////////////////////////
+              ///////////////////////////////////////////////////////////////////////////////////
+              ///////////////////////////////////////////////////////////////////////////////////
+              ? SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      Container(
+                        padding: EdgeInsets.only(left: 8.w),
+                        height: 50.h,
+                        child: ListView.builder(
+                            shrinkWrap: true,
+                            scrollDirection: Axis.horizontal,
+                            itemCount: catList.length,
+                            itemBuilder: (_, index) {
+                              return ComposeCategoryChip(
+                                  text: catList[index],
+                                  currentSelected: currentSelected,
+                                  index: index,
+                                  onTap: () {
+                                    setState(() {
+                                      currentSelected = catList[index];
+                                    });
+                                  });
+                            }),
                       ),
-                    ),
-                    SizedBox(
-                      height: 12.h,
-                    ),
-                    Container(
-                      margin: EdgeInsets.symmetric(horizontal: 8.w),
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(12.r),
-                          border: Border.all(color: AppColors.kGrayColor3)),
-                      child: Row(children: [
-                        ClipRRect(
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(12.r),
-                            bottomLeft: Radius.circular(12.r),
-                          ),
-                          child: Image.asset(
-                            AppAssets.office,
-                            height: 105.13.h,
-                            width: 111.w,
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                        SizedBox(
-                          width: 20.w,
-                        ),
-                        Column(
+                      const Divider(
+                        color: AppColors.kGrayColor3,
+                      ),
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 20.w),
+                        child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
+                            SizedBox(
+                              height: 20.h,
+                            ),
+                            Row(
+                              children: [
+                                Container(),
+                                const Spacer(),
+                                SvgPicture.asset(
+                                  AppAssets.location2Icon,
+                                  height: 24.h,
+                                ),
+                                SizedBox(
+                                  width: 20.w,
+                                ),
+                                SvgPicture.asset(
+                                  AppAssets.video2Icon,
+                                  height: 24.h,
+                                ),
+                                SizedBox(
+                                  width: 20.w,
+                                ),
+                                SvgPicture.asset(
+                                  AppAssets.imageIcon,
+                                  height: 24.h,
+                                ),
+                                SizedBox(
+                                  width: 20.w,
+                                ),
+                                SvgPicture.asset(
+                                  AppAssets.zoomIcon,
+                                  height: 24.h,
+                                ),
+                                SizedBox(
+                                  height: 20.h,
+                                ),
+                              ],
+                            ),
+                            // CommonTextFieldNew(
+                            //     onSaved: (e) {},
+                            //     validator: (e) {
+                            //       return null;
+                            //     },
+                            //     disableBorder: true,
+                            //     contentPadding:
+                            //         EdgeInsets.symmetric(vertical: 30.h),
+                            //     maxLines: 3,
+                            //     hintText: 'Enter Text Here',
+                            //     filled: false),
+                            SizedBox(
+                              height: 20.h,
+                            ),
                             Text(
-                              'JINIE RESTAURANT',
-                              style: AppTextStyle.bodyNormal15
-                                  .copyWith(color: AppColors.kBlackColor),
+                                "here is my faborite rest come visit together"),
+                            SizedBox(
+                              height: 20.h,
+                            ),
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(12.r),
+                              child: Image.asset(
+                                AppAssets.office,
+                                height: 272.h,
+                                width: 319.w,
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                            SizedBox(
+                              height: 20.h,
+                            ),
+                            Text("come visit together"),
+                            SizedBox(
+                              height: 12.h,
+                            ),
+                            Container(
+                              margin: EdgeInsets.symmetric(horizontal: 8.w),
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(12.r),
+                                  border:
+                                      Border.all(color: AppColors.kGrayColor3)),
+                              child: Row(children: [
+                                ClipRRect(
+                                  borderRadius: BorderRadius.only(
+                                    topLeft: Radius.circular(12.r),
+                                    bottomLeft: Radius.circular(12.r),
+                                  ),
+                                  child: Image.asset(
+                                    AppAssets.office,
+                                    height: 105.13.h,
+                                    width: 111.w,
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: 20.w,
+                                ),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      'JINIE RESTAURANT',
+                                      style: AppTextStyle.bodyNormal15.copyWith(
+                                          color: AppColors.kBlackColor),
+                                    ),
+                                    SizedBox(
+                                      height: 12.h,
+                                    ),
+                                    Text(
+                                      'Seoul, Korea, ZIP 39390',
+                                      style: AppTextStyle.bodyNormal15.copyWith(
+                                          color: AppColors.kBlackColor),
+                                    ),
+                                  ],
+                                ),
+                              ]),
+                            )
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
+                )
+              ////////////////////////////////////////////////////////////////////////////////
+              ///////////////////////////////////////////////////////////////////////////////////
+              ///////////////////////////////////////////////////////////////////////////////////
+              ///////////////////////////////////////////////////////////////////////////////////
+              ///////////////////////////////////////////////////////////////////////////////////
+              ///////////////////////////////////////////////////////////////////////////////////
+              ///////////////////////////////////////////////////////////////////////////////////
+              ///////////////////////////////////////////////////////////////////////////////////
+              ///////////////////////////////////////////////////////////////////////////////////
+              ///////////////////////////////////////////////////////////////////////////////////
+              : SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      Container(
+                        padding: EdgeInsets.only(left: 8.w),
+                        height: 50.h,
+                        child: ListView.builder(
+                            shrinkWrap: true,
+                            scrollDirection: Axis.horizontal,
+                            itemCount: catList.length,
+                            itemBuilder: (_, index) {
+                              return ComposeCategoryChip(
+                                  text: catList[index],
+                                  currentSelected: currentSelected,
+                                  index: index,
+                                  onTap: () {
+                                    setState(() {
+                                      currentSelected = catList[index];
+                                    });
+                                  });
+                            }),
+                      ),
+                      const Divider(
+                        color: AppColors.kGrayColor3,
+                      ),
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 20.w),
+                        child: Column(
+                          children: [
+                            SizedBox(
+                              height: 20.h,
+                            ),
+                            Row(
+                              children: [
+                                Container(
+                                  padding: EdgeInsets.symmetric(
+                                      vertical: 6.h, horizontal: 10.w),
+                                  decoration: BoxDecoration(
+                                      color: AppColors.kRedColor,
+                                      borderRadius:
+                                          BorderRadius.circular(12.r)),
+                                  child: Text(
+                                    'Restaurant',
+                                    style: AppTextStyle.bodyNormal10
+                                        .copyWith(color: AppColors.kWhiteColor),
+                                  ),
+                                ),
+                                const Spacer(),
+                                SvgPicture.asset(
+                                  AppAssets.location2Icon,
+                                  height: 24.h,
+                                ),
+                                SizedBox(
+                                  width: 20.w,
+                                ),
+                                SvgPicture.asset(
+                                  AppAssets.video2Icon,
+                                  height: 24.h,
+                                ),
+                                SizedBox(
+                                  width: 20.w,
+                                ),
+                                SvgPicture.asset(
+                                  AppAssets.imageIcon,
+                                  height: 24.h,
+                                ),
+                                SizedBox(
+                                  width: 20.w,
+                                ),
+                                SvgPicture.asset(
+                                  AppAssets.zoomIcon,
+                                  height: 24.h,
+                                ),
+                                SizedBox(
+                                  height: 20.h,
+                                ),
+                              ],
+                            ),
+                            CommonTextFieldNew(
+                                onSaved: (e) {},
+                                validator: (e) {
+                                  return null;
+                                },
+                                disableBorder: true,
+                                contentPadding:
+                                    EdgeInsets.symmetric(vertical: 30.h),
+                                maxLines: 3,
+                                hintText: 'Enter Text Here',
+                                filled: false),
+                            SizedBox(
+                              height: 20.h,
+                            ),
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(12.r),
+                              child: Image.asset(
+                                AppAssets.office,
+                                height: 272.h,
+                                width: 319.w,
+                                fit: BoxFit.cover,
+                              ),
                             ),
                             SizedBox(
                               height: 12.h,
                             ),
-                            Text(
-                              'Seoul, Korea, ZIP 39390',
-                              style: AppTextStyle.bodyNormal15
-                                  .copyWith(color: AppColors.kBlackColor),
-                            ),
+                            Container(
+                              margin: EdgeInsets.symmetric(horizontal: 8.w),
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(12.r),
+                                  border:
+                                      Border.all(color: AppColors.kGrayColor3)),
+                              child: Row(children: [
+                                ClipRRect(
+                                  borderRadius: BorderRadius.only(
+                                    topLeft: Radius.circular(12.r),
+                                    bottomLeft: Radius.circular(12.r),
+                                  ),
+                                  child: Image.asset(
+                                    AppAssets.office,
+                                    height: 105.13.h,
+                                    width: 111.w,
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: 20.w,
+                                ),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      'JINIE RESTAURANT',
+                                      style: AppTextStyle.bodyNormal15.copyWith(
+                                          color: AppColors.kBlackColor),
+                                    ),
+                                    SizedBox(
+                                      height: 12.h,
+                                    ),
+                                    Text(
+                                      'Seoul, Korea, ZIP 39390',
+                                      style: AppTextStyle.bodyNormal15.copyWith(
+                                          color: AppColors.kBlackColor),
+                                    ),
+                                  ],
+                                ),
+                              ]),
+                            )
                           ],
                         ),
-                      ]),
-                    )
-                  ],
+                      )
+                    ],
+                  ),
                 ),
-              )
-            ],
-          ),
         ),
+        bottomNavigationBar: isPosted
+            ? const SizedBox()
+            : Padding(
+                padding: EdgeInsets.all(16.w),
+                child: CommonButton(
+                    onTap: () {
+                      setState(() {
+                        isPosted = true;
+                      });
+                    },
+                    text: 'Post',
+                    isItalicText: false,
+                    isFilled: true,
+                    hasIcon: false),
+              ),
       ),
-      bottomNavigationBar: isPosted
-          ? const SizedBox()
-          : Padding(
-              padding: EdgeInsets.all(16.w),
-              child: CommonButton(
-                  onTap: () {
-                    setState(() {
-                      isPosted = true;
-                    });
-                  },
-                  text: 'Post',
-                  isItalicText: false,
-                  isFilled: true,
-                  hasIcon: false),
-            ),
     );
   }
 }
@@ -258,4 +446,32 @@ class ComposeCategoryChip extends StatelessWidget {
       ),
     );
   }
+}
+
+cupertinoBottomSheetShow(context) {
+  showCupertinoModalPopup(
+      barrierColor: Colors.black.withOpacity(0.7),
+      context: context,
+      builder: (context) {
+        return CupertinoActionSheet(
+          message: Text(
+              "Are you sure you want to cancel your writing ?\nif you select Cancel Write, the written article is not saved.                            "),
+          actions: [
+            CupertinoActionSheetAction(
+              onPressed: () {
+                Navigator.pop(context, true);
+              },
+              child: Text("Post"),
+            ),
+            CupertinoActionSheetAction(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: Text(
+                  "Cancel",
+                  style: TextStyle(color: Colors.red),
+                )),
+          ],
+        );
+      });
 }
