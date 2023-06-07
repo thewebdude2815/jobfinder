@@ -1,10 +1,7 @@
 import 'package:get/get_navigation/src/routes/get_route.dart';
 import 'package:jobfinder/screens/account/change_password.dart';
 import 'package:jobfinder/screens/account/change_password_success.dart';
-import 'package:jobfinder/screens/account/follower.dart';
-import 'package:jobfinder/screens/account/posts.dart';
 import 'package:jobfinder/screens/account/profile.dart';
-import 'package:jobfinder/screens/account/searchUser.dart';
 import 'package:jobfinder/screens/account/settings.dart';
 import 'package:jobfinder/screens/apply_jobs/apply_jobs.dart';
 import 'package:jobfinder/screens/apply_jobs/apply_jobs_success.dart';
@@ -26,6 +23,10 @@ import 'package:jobfinder/screens/company_information/company_done.dart';
 import 'package:jobfinder/screens/company_information/company_information.dart';
 import 'package:jobfinder/screens/company_information/company_location.dart';
 import 'package:jobfinder/screens/company_information/company_preferences.dart';
+import 'package:jobfinder/screens/daily_life/compose.dart';
+import 'package:jobfinder/screens/daily_life/follower.dart';
+import 'package:jobfinder/screens/daily_life/posts.dart';
+import 'package:jobfinder/screens/daily_life/searchUser.dart';
 import 'package:jobfinder/screens/filter/filter.dart';
 import 'package:jobfinder/screens/job_details/job_details1.dart';
 import 'package:jobfinder/screens/job_details/job_details2.dart';
@@ -115,6 +116,7 @@ class Routes {
   static String notificationsSettingsRoute = '/notificationsSettings';
   static String changePasswordRoute = '/changePassword';
   static String changePasswordSuccessRoute = '/changePasswordSuccess';
+  static String composeRoute = '/compose';
 
   static List<GetPage> getPages = [
     GetPage(
@@ -344,6 +346,10 @@ class Routes {
     GetPage(
       name: changePasswordSuccessRoute,
       page: () => const ChangePasswordSuccess(),
+    ),
+    GetPage(
+      name: composeRoute,
+      page: () => const ComposeDailyLife(),
     ),
   ];
 }

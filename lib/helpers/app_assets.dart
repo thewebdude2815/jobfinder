@@ -61,8 +61,13 @@ class AppAssets {
   static const dealIcon = '$iconAddress/deal.svg';
   static const addCameraIcon = '$iconAddress/addCamera.svg';
   static const doneIcon = '$iconAddress/done.svg';
+  static const chat2Icon = '$iconAddress/chat2.svg';
   static const postJobIcon = '$iconAddress/postJob.svg';
   static const dailyLifeIcon = '$iconAddress/dailyLife.svg';
+  static const location2Icon = '$iconAddress/location2.svg';
+  static const video2Icon = '$iconAddress/video2.svg';
+  static const imageIcon = '$iconAddress/image.svg';
+  static const zoomIcon = '$iconAddress/zoom.svg';
 
   // images
   static const onboardingA = '$imagesAddress/onboardingA.png';

@@ -14,6 +14,8 @@ class CommonDropdownButton extends StatefulWidget {
   void Function(dynamic) onChange;
   String? label;
   bool? isFilled;
+  Color? textColor;
+  bool? showBorder;
   CommonDropdownButton(
       {Key? key,
       required this.items,
@@ -22,6 +24,8 @@ class CommonDropdownButton extends StatefulWidget {
       this.value,
       this.label,
       required this.onChange,
+      this.textColor,
+      this.showBorder,
       this.isFilled})
       : super(key: key);
 
@@ -54,53 +58,58 @@ class _CommonDropdownButtonState extends State<CommonDropdownButton> {
         DropdownButtonFormField2(
           iconStyleData: IconStyleData(
               iconEnabledColor: widget.isFilled != null
-                  ? AppColors.kWhiteColor
+                  ? widget.textColor ?? AppColors.kWhiteColor
                   : AppColors.kGrayColor10),
           decoration: InputDecoration(
             contentPadding: EdgeInsets.only(
                 top: 12.h,
                 bottom: 12.h,
-                left: 0.w,
+                left: 0,
                 right: widget.isFilled != null ? 0.w : 12.w),
             fillColor: widget.isFilled != null
                 ? Colors.transparent
                 : AppColors.kGrayColor4,
             filled: true,
-            border: widget.isFilled != null
-                ? UnderlineInputBorder(
-                    borderSide:
-                        BorderSide(width: 3.h, color: AppColors.kWhiteColor))
-                : OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12.r),
-                    borderSide: const BorderSide(
-                      color: AppColors.kGrayColor4,
-                    ),
-                  ),
-            enabledBorder: widget.isFilled != null
-                ? UnderlineInputBorder(
-                    borderSide: BorderSide(
-                    color: AppColors.kWhiteColor,
-                    width: 3.h,
-                  ))
-                : OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12.r),
-                    borderSide: const BorderSide(
-                      color: AppColors.kGrayColor4,
-                    ),
-                  ),
+            border: widget.showBorder == true
+                ? widget.isFilled != null
+                    ? UnderlineInputBorder(
+                        borderSide: BorderSide(
+                            width: 3.h,
+                            color: widget.textColor ?? AppColors.kWhiteColor))
+                    : OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(12.r),
+                        borderSide: const BorderSide(
+                          color: AppColors.kGrayColor4,
+                        ),
+                      )
+                : const UnderlineInputBorder(borderSide: BorderSide.none),
+            enabledBorder: widget.showBorder == true
+                ? widget.isFilled != null
+                    ? UnderlineInputBorder(
+                        borderSide: BorderSide(
+                        color: widget.textColor ?? AppColors.kWhiteColor,
+                        width: 3.h,
+                      ))
+                    : OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(12.r),
+                        borderSide: const BorderSide(
+                          color: AppColors.kGrayColor4,
+                        ),
+                      )
+                : const UnderlineInputBorder(borderSide: BorderSide.none),
           ),
-          isExpanded: true,
+          isExpanded: false,
           hint: Text(
             widget.hintText ?? "",
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
             style: widget.isFilled != null
                 ? AppTextStyle.bodyBold24.copyWith(
-                    color: AppColors.kWhiteColor,
+                    color: widget.textColor ?? AppColors.kWhiteColor,
                     fontSize: 20.sp,
                     fontWeight: FontWeight.w700)
                 : AppTextStyle.bodyNormal17
-                    .copyWith(color: AppColors.kGrayColor),
+                    .copyWith(color: widget.textColor ?? AppColors.kGrayColor),
           ),
           items: widget.items
               .map(
@@ -110,11 +119,11 @@ class _CommonDropdownButtonState extends State<CommonDropdownButton> {
                     item,
                     style: widget.isFilled != null
                         ? AppTextStyle.bodyBold24.copyWith(
-                            color: AppColors.kWhiteColor,
-                            fontSize: 28.sp,
+                            color: widget.textColor ?? AppColors.kWhiteColor,
+                            fontSize: 20.sp,
                             fontWeight: FontWeight.w700)
-                        : AppTextStyle.bodyNormal17
-                            .copyWith(color: AppColors.kBlackColor),
+                        : AppTextStyle.bodyNormal17.copyWith(
+                            color: widget.textColor ?? AppColors.kBlackColor),
                     overflow: TextOverflow.ellipsis,
                   ),
                 ),

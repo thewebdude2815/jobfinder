@@ -27,7 +27,7 @@ class Werktion extends StatelessWidget {
                 child: child!);
           },
           getPages: Routes.getPages,
-          initialRoute: Routes.splashRoute,
+          initialRoute: Routes.bottomNavBarRoute,
         );
       }),
     );
