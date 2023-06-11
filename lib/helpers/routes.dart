@@ -1,6 +1,7 @@
 import 'package:get/get_navigation/src/routes/get_route.dart';
 import 'package:jobfinder/screens/account/change_password.dart';
 import 'package:jobfinder/screens/account/change_password_success.dart';
+import 'package:jobfinder/screens/account/job_finding_by_map.dart';
 import 'package:jobfinder/screens/account/profile.dart';
 import 'package:jobfinder/screens/account/settings.dart';
 import 'package:jobfinder/screens/apply_jobs/apply_jobs.dart';
@@ -15,6 +16,7 @@ import 'package:jobfinder/screens/browse/browse3.dart';
 import 'package:jobfinder/screens/browse/browse4.dart';
 import 'package:jobfinder/screens/browse/categories.dart';
 import 'package:jobfinder/screens/browse/search.dart';
+import 'package:jobfinder/screens/choose_language/app_language.dart';
 import 'package:jobfinder/screens/choose_language/choose_language.dart';
 import 'package:jobfinder/screens/choose_location/choose_location.dart';
 import 'package:jobfinder/screens/company_details/company_details.dart';
@@ -23,9 +25,11 @@ import 'package:jobfinder/screens/company_information/company_done.dart';
 import 'package:jobfinder/screens/company_information/company_information.dart';
 import 'package:jobfinder/screens/company_information/company_location.dart';
 import 'package:jobfinder/screens/company_information/company_preferences.dart';
+import 'package:jobfinder/screens/daily_life/block_success.dart';
 import 'package:jobfinder/screens/daily_life/compose.dart';
 import 'package:jobfinder/screens/daily_life/follower.dart';
 import 'package:jobfinder/screens/daily_life/posts.dart';
+import 'package:jobfinder/screens/daily_life/report_success.dart';
 import 'package:jobfinder/screens/daily_life/searchUser.dart';
 import 'package:jobfinder/screens/filter/filter.dart';
 import 'package:jobfinder/screens/job_details/job_details1.dart';
@@ -117,6 +121,10 @@ class Routes {
   static String changePasswordRoute = '/changePassword';
   static String changePasswordSuccessRoute = '/changePasswordSuccess';
   static String composeRoute = '/compose';
+  static String reportSuccessRoute = '/reportSuccess';
+  static String blockSuccessRoute = '/blockSuccess';
+  static String jobFindingByMapRoute = '/jobFindingByMap';
+  static String appLanguageRoute = '/appLanguage';
 
   static List<GetPage> getPages = [
     GetPage(
@@ -350,6 +358,22 @@ class Routes {
     GetPage(
       name: composeRoute,
       page: () => const ComposeDailyLife(),
+    ),
+    GetPage(
+      name: blockSuccessRoute,
+      page: () => const BlockSuccess(),
+    ),
+    GetPage(
+      name: reportSuccessRoute,
+      page: () => const ReportSuccess(),
+    ),
+    GetPage(
+      name: jobFindingByMapRoute,
+      page: () => const JobFindingByMap(),
+    ),
+    GetPage(
+      name: appLanguageRoute,
+      page: () => const AppLanguage(),
     ),
   ];
 }

@@ -36,6 +36,8 @@ class _ChangePasswordState extends State<ChangePassword> {
                 return null;
               },
               filled: true,
+              contentPadding:
+                  EdgeInsets.symmetric(horizontal: 12.w, vertical: 12.w),
               label: 'Current Password',
               hintText: 'Write Your Current Password',
             ),
@@ -43,6 +45,8 @@ class _ChangePasswordState extends State<ChangePassword> {
               height: 8.h,
             ),
             CommonTextFieldWithLabel(
+              contentPadding:
+                  EdgeInsets.symmetric(horizontal: 12.w, vertical: 12.w),
               onSaved: (e) {},
               validator: (e) {
                 return null;
@@ -55,6 +59,8 @@ class _ChangePasswordState extends State<ChangePassword> {
               height: 8.h,
             ),
             CommonTextFieldWithLabel(
+              contentPadding:
+                  EdgeInsets.symmetric(horizontal: 12.w, vertical: 12.w),
               onSaved: (e) {},
               validator: (e) {
                 return null;

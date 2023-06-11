@@ -454,23 +454,23 @@ cupertinoBottomSheetShow(context) {
       context: context,
       builder: (context) {
         return CupertinoActionSheet(
-          message: Text(
+          message: const Text(
               "Are you sure you want to cancel your writing ?\nif you select Cancel Write, the written article is not saved.                            "),
           actions: [
-            CupertinoActionSheetAction(
-              onPressed: () {
-                Navigator.pop(context, true);
-              },
-              child: Text("Post"),
-            ),
             CupertinoActionSheetAction(
                 onPressed: () {
                   Navigator.pop(context);
                 },
-                child: Text(
+                child: const Text(
                   "Cancel",
                   style: TextStyle(color: Colors.red),
                 )),
+            CupertinoActionSheetAction(
+              onPressed: () {
+                Navigator.pop(context, true);
+              },
+              child: const Text("Post"),
+            ),
           ],
         );
       });

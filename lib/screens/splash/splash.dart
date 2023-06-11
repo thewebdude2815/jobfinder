@@ -2,9 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:jobfinder/helpers/app_assets.dart';
 import 'package:jobfinder/helpers/app_colors.dart';
 import 'package:jobfinder/helpers/app_text_style.dart';
 import 'package:jobfinder/helpers/routes.dart';
@@ -41,10 +39,16 @@ class _SplashScreenState extends State<SplashScreen> {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
-                'JOBBEE',
-                style: AppTextStyle.bodyBold40.copyWith(
-                    color: AppColors.kWhiteColor, fontWeight: FontWeight.w400),
+              GestureDetector(
+                onTap: () {
+                  Get.toNamed(Routes.appLanguageRoute);
+                },
+                child: Text(
+                  'JOBBEE',
+                  style: AppTextStyle.bodyBold40.copyWith(
+                      color: AppColors.kWhiteColor,
+                      fontWeight: FontWeight.w400),
+                ),
               ),
               SizedBox(
                 height: 16.h,

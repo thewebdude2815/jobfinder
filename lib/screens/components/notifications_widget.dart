@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_swipe_action_cell/core/cell.dart';
 import 'package:flutter_swipe_action_cell/flutter_swipe_action_cell.dart';
+import 'package:jobfinder/helpers/app_assets.dart';
 import 'package:jobfinder/helpers/app_colors.dart';
 import 'package:jobfinder/helpers/app_text_style.dart';
 
@@ -28,7 +30,14 @@ class NotificationsWidget extends StatelessWidget {
       controller: controller,
       trailingActions: [
         SwipeAction(
-            title: "delete",
+            // title: "delete",
+            icon: Center(
+              child: SvgPicture.asset(
+                AppAssets.deleteIcon,
+                height: 24.w,
+                color: AppColors.kWhiteColor,
+              ),
+            ),
             onTap: (handler) async {
               await handler(true);
               // list.removeAt(index);

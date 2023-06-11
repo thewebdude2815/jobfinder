@@ -31,7 +31,7 @@ class _SettingsState extends State<Settings> {
       backgroundColor: AppColors.kWhiteColor,
       appBar: CustomAppBar(showBackButton: true),
       body: SafeArea(
-        child: Padding(
+        child: SingleChildScrollView(
           padding: EdgeInsets.only(left: 16.w),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -85,6 +85,13 @@ class _SettingsState extends State<Settings> {
                   const SettingsOptionWidget(
                     icon: AppAssets.handIcon,
                     text: 'Privacy Settings',
+                  ),
+                  SizedBox(
+                    height: 12.h,
+                  ),
+                  const SettingsOptionWidget(
+                    icon: AppAssets.handIcon,
+                    text: 'Blocked User Settings',
                   ),
                   SizedBox(
                     height: 12.h,

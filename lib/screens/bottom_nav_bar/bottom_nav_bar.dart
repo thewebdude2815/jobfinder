@@ -9,7 +9,6 @@ import 'package:jobfinder/screens/account/account.dart';
 import 'package:jobfinder/screens/browse/browse.dart';
 import 'package:jobfinder/screens/browse/browse2.dart';
 import 'package:jobfinder/screens/daily_life/daily_life_home.dart';
-import 'package:jobfinder/screens/daily_life/posts.dart';
 import 'package:jobfinder/screens/messages/messages.dart';
 
 class MainBottomNavBarScreen extends StatefulWidget {

@@ -218,7 +218,9 @@ class Browse extends StatelessWidget {
                     ),
                     Browse2HeadingRow(
                       title: 'Which city you would like to live in?',
-                      onTap: () {},
+                      onTap: () {
+                        Get.toNamed(Routes.jobFindingByMapRoute);
+                      },
                       padding: 0.w,
                     ),
                     SizedBox(
@@ -386,24 +388,29 @@ class Browse extends StatelessWidget {
                             ),
                           ),
                           Expanded(
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                SvgPicture.asset(
-                                  AppAssets.filterIcon,
-                                  height: 12.h,
-                                  width: 14.w,
-                                  color: AppColors.kGrayColor10,
-                                ),
-                                SizedBox(
-                                  width: 8.w,
-                                ),
-                                Text(
-                                  'Filter',
-                                  style: AppTextStyle.bodyNormal15
-                                      .copyWith(color: AppColors.kGrayColor2),
-                                ),
-                              ],
+                            child: GestureDetector(
+                              onTap: () {
+                                Get.toNamed(Routes.filterRoute);
+                              },
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  SvgPicture.asset(
+                                    AppAssets.filterIcon,
+                                    height: 12.h,
+                                    width: 14.w,
+                                    color: AppColors.kGrayColor10,
+                                  ),
+                                  SizedBox(
+                                    width: 8.w,
+                                  ),
+                                  Text(
+                                    'Filter',
+                                    style: AppTextStyle.bodyNormal15
+                                        .copyWith(color: AppColors.kGrayColor2),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ],

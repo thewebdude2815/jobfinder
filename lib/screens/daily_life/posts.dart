@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
+// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, sort_child_properties_last
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -94,228 +94,267 @@ class _PostsState extends State<Posts> {
                         SizedBox(
                           width: 8.w,
                         ),
-                        DropdownButtonHideUnderline(
-                          child: DropdownButton(
-                            onTap: () {
-                              if (dropdownvalue == "Block") {
-                                showDialog(
-                                    context: context,
-                                    builder: (_) {
-                                      return CupertinoAlertDialog(
-                                        title: Column(
-                                          children: <Widget>[
-                                            Text("To block"),
-                                          ],
-                                        ),
-                                        content: new Text(
-                                            "Are you sure you want to block Nickname?" +
-                                                "Now your nickname is on your profile, VORA," +
-                                                "Couldn't find any activity history, including posts" +
-                                                "Also, the fact that you have been blocked will not be notified to your nickname."),
-                                        actions: <Widget>[
-                                          CupertinoDialogAction(
-                                            child: Text(
-                                              "To Block",
-                                              style: TextStyle(
-                                                color: Colors.red,
-                                              ),
-                                            ),
-                                            onPressed: () {
-                                              Navigator.of(context).pop();
-                                            },
-                                          ),
-                                          CupertinoDialogAction(
-                                            child: Text("Cancel"),
-                                            onPressed: () {
-                                              Navigator.of(context).pop();
-                                            },
-                                          ),
-                                        ],
-                                      );
-                                    });
-                              } else if (dropdownvalue == "Report") {
-                                showDialog(
-                                    context: context,
-                                    builder: (_) {
-                                      return AlertDialog(content:
-                                          StatefulBuilder(builder:
-                                              (BuildContext context,
-                                                  StateSetter setState) {
-                                        return Container(
-                                          height: 240.h,
-                                          child: Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceBetween,
-                                                children: [
-                                                  Container(),
-                                                  Text(
-                                                    "Reporting",
-                                                    style: AppTextStyle
-                                                        .bodyBold24
-                                                        .copyWith(
-                                                            color: AppColors
-                                                                .kBlackColor,
-                                                            fontSize: 18.sp),
-                                                  ),
-                                                  InkWell(
-                                                      onTap: () {
-                                                        Navigator.pop(context);
-                                                      },
-                                                      child: Icon(Icons.close,
-                                                          size: 22.0)),
+                        PopupMenuButton(
+                            child: Container(
+                              height: 24.h,
+                              width: 28.h,
+                              color: AppColors.kWhiteColor,
+                              child: Icon(
+                                Icons.more_horiz,
+                                color: AppColors.kBlackColor,
+                                size: 15.5.w,
+                              ),
+                            ),
+                            offset: const Offset(0.0, 40),
+                            onSelected: (value) {},
+                            itemBuilder: (BuildContext bc) {
+                              return [
+                                PopupMenuItem(
+                                  child: Text("REPORT"),
+                                  onTap: () {
+                                    Future.delayed(Duration(milliseconds: 1),
+                                        () {
+                                      showDialog(
+                                          context: context,
+                                          builder: (_) {
+                                            return CupertinoAlertDialog(
+                                              title: Column(
+                                                children: <Widget>[
+                                                  Text("To block"),
                                                 ],
                                               ),
-                                              SizedBox(height: 20.h),
-                                              Text(
-                                                "Reason for reporting",
-                                                style: AppTextStyle.bodyNormal13
-                                                    .copyWith(
-                                                  color: AppColors.kBlackColor,
-                                                ),
-                                              ),
-                                              SizedBox(height: 8.h),
-                                              GestureDetector(
-                                                onTap: () {
-                                                  cupertinoBottomSheetShowForDialog(
-                                                      context);
-                                                },
-                                                child: Container(
-                                                  height: 40.0.h,
-                                                  width: double.infinity,
-                                                  decoration: BoxDecoration(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            8.r),
-                                                    border: Border.all(
-                                                        color: AppColors
-                                                            .kGrayColor,
-                                                        width: 0.0),
+                                              content: const Text(
+                                                  "Are you sure you want to block Nickname?" +
+                                                      "Now your nickname is on your profile, VORA," +
+                                                      "Couldn't find any activity history, including posts" +
+                                                      "Also, the fact that you have been blocked will not be notified to your nickname."),
+                                              actions: <Widget>[
+                                                CupertinoDialogAction(
+                                                  child: Text(
+                                                    "To Block",
+                                                    style: TextStyle(
+                                                      color: Colors.red,
+                                                    ),
                                                   ),
-                                                  child: Padding(
-                                                    padding: const EdgeInsets
-                                                            .symmetric(
-                                                        horizontal: 8.0),
-                                                    child: Row(
+                                                  onPressed: () {
+                                                    Get.toNamed(Routes
+                                                        .reportSuccessRoute);
+                                                  },
+                                                ),
+                                                CupertinoDialogAction(
+                                                  child: Text("Cancel"),
+                                                  onPressed: () {
+                                                    Get.back();
+                                                  },
+                                                ),
+                                              ],
+                                            );
+                                          });
+                                    });
+                                  },
+                                ),
+                                PopupMenuItem(
+                                  child: Text("BLOCK"),
+                                  onTap: () {
+                                    Future.delayed(Duration(milliseconds: 1),
+                                        () {
+                                      return showDialog(
+                                          context: context,
+                                          builder: (_) {
+                                            return AlertDialog(content:
+                                                StatefulBuilder(builder:
+                                                    (BuildContext context,
+                                                        StateSetter setState) {
+                                              return SizedBox(
+                                                height: 260.h,
+                                                child: Column(
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: [
+                                                    Row(
                                                       mainAxisAlignment:
                                                           MainAxisAlignment
                                                               .spaceBetween,
                                                       children: [
+                                                        Container(),
                                                         Text(
-                                                          "illegal or obscene",
+                                                          "Reporting",
                                                           style: AppTextStyle
-                                                              .bodyNormal13
+                                                              .bodyBold24
                                                               .copyWith(
-                                                            color: AppColors
-                                                                .kBlackColor,
-                                                          ),
+                                                                  color: AppColors
+                                                                      .kBlackColor,
+                                                                  fontSize:
+                                                                      18.sp),
                                                         ),
-                                                        Icon(Icons
-                                                            .keyboard_arrow_down_rounded)
+                                                        InkWell(
+                                                            onTap: () {
+                                                              Navigator.pop(
+                                                                  context);
+                                                            },
+                                                            child: Icon(
+                                                                Icons.close,
+                                                                size: 22.0)),
                                                       ],
                                                     ),
-                                                  ),
-                                                ),
-                                              ),
-                                              SizedBox(
-                                                height: 10.h,
-                                              ),
-                                              Text(
-                                                "CONTENTS",
-                                                style: AppTextStyle.bodyNormal13
-                                                    .copyWith(
-                                                  color: AppColors.kBlackColor,
-                                                ),
-                                              ),
-                                              SizedBox(height: 8.h),
-                                              CommonTextFieldNew(
-                                                onSaved: (e) {},
-                                                validator: (e) {},
-                                                filled: false,
-                                                contentPadding:
-                                                    EdgeInsets.all(10),
-                                                hintText:
-                                                    'Please enter your content, (50 characters or less)',
-                                              ),
-                                              SizedBox(height: 14.h),
-                                              Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceEvenly,
-                                                children: [
-                                                  Container(
-                                                    height: 40.h,
-                                                    width: 120.w,
-                                                    decoration: BoxDecoration(
-                                                      color:
-                                                          AppColors.kBlackColor,
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              8.r),
-                                                    ),
-                                                    child: Center(
-                                                        child: Text(
-                                                      "REPORT",
+                                                    SizedBox(height: 20.h),
+                                                    Text(
+                                                      "Reason for reporting",
                                                       style: AppTextStyle
                                                           .bodyNormal13
                                                           .copyWith(
-                                                              color: AppColors
-                                                                  .kWhiteColor),
-                                                    )),
-                                                  ),
-                                                  Container(
-                                                    height: 40.h,
-                                                    width: 120.w,
-                                                    decoration: BoxDecoration(
-                                                      border: Border.all(
                                                         color: AppColors
                                                             .kBlackColor,
                                                       ),
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              8.r),
                                                     ),
-                                                    child: Center(
-                                                        child: Text("CANCEL")),
-                                                  ),
-                                                ],
-                                              ),
-                                            ],
-                                          ),
-                                        );
-                                      }));
+                                                    SizedBox(height: 8.h),
+                                                    GestureDetector(
+                                                      onTap: () {
+                                                        cupertinoBottomSheetShowForDialog(
+                                                            context);
+                                                      },
+                                                      child: Container(
+                                                        height: 40.0.h,
+                                                        width: double.infinity,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      4.r),
+                                                          border: Border.all(
+                                                              color: AppColors
+                                                                  .kGrayColor,
+                                                              width: 0.0),
+                                                        ),
+                                                        child: Padding(
+                                                          padding: EdgeInsets
+                                                              .symmetric(
+                                                                  horizontal:
+                                                                      12.w,
+                                                                  vertical:
+                                                                      12.h),
+                                                          child: Row(
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .spaceBetween,
+                                                            children: [
+                                                              Text(
+                                                                "illegal or obscene",
+                                                                style: AppTextStyle
+                                                                    .bodyNormal13
+                                                                    .copyWith(
+                                                                  color: AppColors
+                                                                      .kBlackColor,
+                                                                ),
+                                                              ),
+                                                              Icon(Icons
+                                                                  .keyboard_arrow_down_rounded)
+                                                            ],
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    SizedBox(
+                                                      height: 12.h,
+                                                    ),
+                                                    Text(
+                                                      "CONTENTS",
+                                                      style: AppTextStyle
+                                                          .bodyNormal13
+                                                          .copyWith(
+                                                        color: AppColors
+                                                            .kBlackColor,
+                                                      ),
+                                                    ),
+                                                    SizedBox(height: 8.h),
+                                                    CommonTextFieldNew(
+                                                      onSaved: (e) {},
+                                                      validator: (e) {},
+                                                      filled: false,
+                                                      contentPadding:
+                                                          EdgeInsets.symmetric(
+                                                              horizontal: 12.w,
+                                                              vertical: 12.h),
+                                                      hintText:
+                                                          'Please enter your content, (50 characters or less)',
+                                                      hintStyle: AppTextStyle
+                                                          .bodyNormal13
+                                                          .copyWith(
+                                                        color: AppColors
+                                                            .kGrayColor3,
+                                                      ),
+                                                    ),
+                                                    SizedBox(height: 14.h),
+                                                    Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceEvenly,
+                                                      children: [
+                                                        GestureDetector(
+                                                          onTap: () {
+                                                            Get.toNamed(Routes
+                                                                .blockSuccessRoute);
+                                                          },
+                                                          child: Container(
+                                                            height: 40.h,
+                                                            width: 120.w,
+                                                            decoration:
+                                                                BoxDecoration(
+                                                              color: AppColors
+                                                                  .kBlackColor,
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          8.r),
+                                                            ),
+                                                            child: Center(
+                                                                child: Text(
+                                                              "REPORT",
+                                                              style: AppTextStyle
+                                                                  .bodyNormal13
+                                                                  .copyWith(
+                                                                      color: AppColors
+                                                                          .kWhiteColor),
+                                                            )),
+                                                          ),
+                                                        ),
+                                                        GestureDetector(
+                                                          onTap: () {
+                                                            Get.back();
+                                                          },
+                                                          child: Container(
+                                                            height: 40.h,
+                                                            width: 120.w,
+                                                            decoration:
+                                                                BoxDecoration(
+                                                              border:
+                                                                  Border.all(
+                                                                color: AppColors
+                                                                    .kBlackColor,
+                                                              ),
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          8.r),
+                                                            ),
+                                                            child: Center(
+                                                                child: Text(
+                                                                    "CANCEL")),
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ],
+                                                ),
+                                              );
+                                            }));
+                                          });
                                     });
-                              }
-                            },
-                            icon: const Icon(
-                              Icons.more_horiz,
-                            ),
-                            items: items.map<DropdownMenuItem<String>>((e) {
-                              return DropdownMenuItem(
-                                child: Text(e),
-                                value: e,
-                              );
-                            }).toList(),
-                            onChanged: (String? newValue) {
-                              setState(() {
-                                dropdownvalue = newValue!;
-                              });
-                            },
-                          ),
-                        ),
-                        // GestureDetector(
-                        //   onTap: () {
-                        //              },
-                        //   child: Icon(
-                        //     Icons.more_horiz,
-                        //     color: AppColors.kBlackColor,
-                        //     size: 15.5.w,
-                        //   ),
-                        // ),
+                                  },
+                                ),
+                              ];
+                            })
                       ],
                     ),
                   ],
@@ -338,9 +377,26 @@ class _PostsState extends State<Posts> {
                     ]),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     SizedBox(
                       height: 20.h,
+                    ),
+                    Container(
+                      margin: EdgeInsets.symmetric(horizontal: 16.w),
+                      padding:
+                          EdgeInsets.symmetric(vertical: 6.h, horizontal: 10.w),
+                      decoration: BoxDecoration(
+                          color: AppColors.kRedColor,
+                          borderRadius: BorderRadius.circular(12.r)),
+                      child: Text(
+                        'Restaurant',
+                        style: AppTextStyle.bodyNormal10
+                            .copyWith(color: AppColors.kWhiteColor),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 16.h,
                     ),
                     Padding(
                       padding: EdgeInsets.symmetric(horizontal: 16.w),

@@ -22,49 +22,21 @@ class PersonalInformation extends StatefulWidget {
 }
 
 class _PersonalInformationState extends State<PersonalInformation> {
-  String _selectedDate = '';
-  String _dateCount = '';
-  String _range = '';
-  String _rangeCount = '';
-
-  showCalendarBox() {
-    void _onSelectionChanged(DateRangePickerSelectionChangedArgs args) {
+  DateTime selectedDate = DateTime.now();
+  String dateToShow = '';
+  _selectDate(BuildContext context) async {
+    final DateTime? picked = await showDatePicker(
+      context: context,
+      initialDate: selectedDate,
+      firstDate: DateTime(2000),
+      lastDate: DateTime(2025),
+    );
+    if (picked != null && picked != selectedDate) {
       setState(() {
-        if (args.value is PickerDateRange) {
-          _range = '${DateFormat('dd/MM/yyyy').format(args.value.startDate)} -'
-              // ignore: lines_longer_than_80_chars
-              ' ${DateFormat('dd/MM/yyyy').format(args.value.endDate ?? args.value.startDate)}';
-        } else if (args.value is DateTime) {
-          _selectedDate = args.value.toString();
-        } else if (args.value is List<DateTime>) {
-          _dateCount = args.value.length.toString();
-        } else {
-          _rangeCount = args.value.length.toString();
-        }
+        selectedDate = picked;
+        dateToShow = DateFormat('dd/MM/yyyy').format(picked);
       });
     }
-
-    return showDialog(
-      context: context,
-      barrierDismissible: true, // user must tap button!
-      builder: (BuildContext context) {
-        return AlertDialog(
-          // <-- SEE HERE
-          title: const Text('Select Data Of Birth'),
-          content: SizedBox(
-            width: 250.w,
-            height: 300.h,
-            child: SfDateRangePicker(
-              onSelectionChanged: _onSelectionChanged,
-              selectionMode: DateRangePickerSelectionMode.range,
-              initialSelectedRange: PickerDateRange(
-                  DateTime.now().subtract(const Duration(days: 4)),
-                  DateTime.now().add(const Duration(days: 3))),
-            ),
-          ),
-        );
-      },
-    );
   }
 
   @override
@@ -85,117 +57,122 @@ class _PersonalInformationState extends State<PersonalInformation> {
             )
           ]),
       body: SafeArea(
-        child: Padding(
+        child: SingleChildScrollView(
           padding: EdgeInsets.symmetric(horizontal: 32.w),
-          child: Column(
-            children: [
-              SizedBox(
-                height: 16.h,
-              ),
-              const CustomStepper(
-                index: 1,
-                completedIndexes: [],
-              ),
-              SizedBox(
-                height: 24.h,
-              ),
-              CommonTextFieldWithLabel(
-                  contentPadding:
-                      EdgeInsets.symmetric(vertical: 12.h, horizontal: 16.w),
-                  label: 'Name',
+          child: SizedBox(
+            height: 700.h,
+            child: Column(
+              children: [
+                SizedBox(
+                  height: 16.h,
+                ),
+                const CustomStepper(
+                  index: 1,
+                  completedIndexes: [],
+                ),
+                SizedBox(
+                  height: 24.h,
+                ),
+                CommonTextFieldWithLabel(
+                    contentPadding:
+                        EdgeInsets.symmetric(vertical: 12.h, horizontal: 16.w),
+                    label: 'Name',
+                    onSaved: (e) {},
+                    validator: (e) {},
+                    hintText: 'Name',
+                    filled: true),
+                SizedBox(
+                  height: 16.h,
+                ),
+                CommonTextFieldWithLabel(
+                    contentPadding:
+                        EdgeInsets.symmetric(vertical: 12.h, horizontal: 16.w),
+                    label: 'Phone',
+                    onSaved: (e) {},
+                    validator: (e) {},
+                    hintText: 'Phone Number',
+                    filled: true),
+                SizedBox(
+                  height: 16.h,
+                ),
+                CommonTextFieldWithLabel(
+                    contentPadding:
+                        EdgeInsets.symmetric(vertical: 12.h, horizontal: 16.w),
+                    label: 'Email',
+                    onSaved: (e) {},
+                    validator: (e) {},
+                    hintText: 'Email',
+                    filled: true),
+                SizedBox(
+                  height: 16.h,
+                ),
+                CommonDropdownButton(
+                  label: 'Gender',
+                  items: const ['Male', 'Female'],
                   onSaved: (e) {},
-                  validator: (e) {},
-                  hintText: 'Name',
-                  filled: true),
-              SizedBox(
-                height: 16.h,
-              ),
-              CommonTextFieldWithLabel(
-                  contentPadding:
-                      EdgeInsets.symmetric(vertical: 12.h, horizontal: 16.w),
-                  label: 'Phone',
-                  onSaved: (e) {},
-                  validator: (e) {},
-                  hintText: 'Phone Number',
-                  filled: true),
-              SizedBox(
-                height: 16.h,
-              ),
-              CommonTextFieldWithLabel(
-                  contentPadding:
-                      EdgeInsets.symmetric(vertical: 12.h, horizontal: 16.w),
-                  label: 'Email',
-                  onSaved: (e) {},
-                  validator: (e) {},
-                  hintText: 'Email',
-                  filled: true),
-              SizedBox(
-                height: 16.h,
-              ),
-              CommonDropdownButton(
-                label: 'Gender',
-                items: const ['Male', 'Female'],
-                onSaved: (e) {},
-                onChange: (e) {},
-                hintText: 'Select Gender',
-              ),
-              SizedBox(
-                height: 16.h,
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Date of Birth',
-                    style: AppTextStyle.bodySemiBold17
-                        .copyWith(color: AppColors.kBlackColor),
-                  ),
-                  SizedBox(
-                    height: 8.h,
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      showCalendarBox();
-                    },
-                    child: Container(
-                      padding: EdgeInsets.symmetric(
-                          vertical: 12.h, horizontal: 16.w),
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(8.r),
-                          color: AppColors.kGrayColor4),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            'DD/MM/YYYY',
-                            style: AppTextStyle.bodyNormal17
-                                .copyWith(color: AppColors.kGrayColor),
-                          ),
-                          SvgPicture.asset(
-                            AppAssets.calendarIcon,
-                            height: 16.h,
-                            width: 14.w,
-                            color: AppColors.kGrayColor,
-                          )
-                        ],
+                  onChange: (e) {},
+                  hintText: 'Select Gender',
+                ),
+                SizedBox(
+                  height: 16.h,
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Date of Birth',
+                      style: AppTextStyle.bodySemiBold17
+                          .copyWith(color: AppColors.kBlackColor),
+                    ),
+                    SizedBox(
+                      height: 8.h,
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        _selectDate(context);
+                      },
+                      child: Container(
+                        padding: EdgeInsets.symmetric(
+                            vertical: 12.h, horizontal: 16.w),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(8.r),
+                            color: AppColors.kGrayColor4),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              dateToShow == ''
+                                  ? 'DD/MM/YYYY'
+                                  : dateToShow.toString(),
+                              style: AppTextStyle.bodyNormal17
+                                  .copyWith(color: AppColors.kGrayColor),
+                            ),
+                            SvgPicture.asset(
+                              AppAssets.calendarIcon,
+                              height: 16.h,
+                              width: 14.w,
+                              color: AppColors.kGrayColor,
+                            )
+                          ],
+                        ),
                       ),
                     ),
-                  ),
-                ],
-              ),
-              const Spacer(),
-              CommonButton(
-                  onTap: () {
-                    Get.toNamed(Routes.locationRoute);
-                  },
-                  text: 'Continue',
-                  isItalicText: false,
-                  isFilled: true,
-                  hasIcon: false),
-              SizedBox(
-                height: 30.h,
-              ),
-            ],
+                  ],
+                ),
+                const Spacer(),
+                CommonButton(
+                    onTap: () {
+                      Get.toNamed(Routes.locationRoute);
+                    },
+                    text: 'Continue',
+                    isItalicText: false,
+                    isFilled: true,
+                    hasIcon: false),
+                SizedBox(
+                  height: 30.h,
+                ),
+              ],
+            ),
           ),
         ),
       ),

@@ -33,70 +33,76 @@ class _LocationState extends State<Location> {
         )
       ]),
       body: SafeArea(
-        child: Padding(
+        child: SingleChildScrollView(
           padding: EdgeInsets.symmetric(horizontal: 32.w),
-          child: Column(
-            children: [
-              SizedBox(
-                height: 16.h,
-              ),
-              const CustomStepper(
-                index: 2,
-                completedIndexes: [1],
-              ),
-              SizedBox(
-                height: 24.h,
-              ),
-              CommonDropdownButton(
-                label: 'Country',
-                items: const ['USA', 'UAE'],
-                onSaved: (e) {},
-                onChange: (e) {},
-                hintText: 'Select Country',
-              ),
-              CommonTextFieldWithLabel(
-                  contentPadding:
-                      EdgeInsets.symmetric(vertical: 12.h, horizontal: 16.w),
-                  label: 'Street Address',
+          child: SizedBox(
+            height: 700.h,
+            child: Column(
+              children: [
+                SizedBox(
+                  height: 16.h,
+                ),
+                const CustomStepper(
+                  index: 2,
+                  completedIndexes: [1],
+                ),
+                SizedBox(
+                  height: 24.h,
+                ),
+                CommonDropdownButton(
+                  label: 'Country',
+                  items: const ['USA', 'UAE'],
                   onSaved: (e) {},
-                  validator: (e) {},
-                  hintText: 'Address',
-                  filled: true),
-              SizedBox(
-                height: 16.h,
-              ),
-              CommonTextFieldWithLabel(
-                  contentPadding:
-                      EdgeInsets.symmetric(vertical: 12.h, horizontal: 16.w),
-                  label: 'City, State',
-                  onSaved: (e) {},
-                  validator: (e) {},
-                  hintText: 'Enter City, State',
-                  filled: true),
-              SizedBox(
-                height: 16.h,
-              ),
-              CommonTextFieldWithLabel(
-                  contentPadding:
-                      EdgeInsets.symmetric(vertical: 12.h, horizontal: 16.w),
-                  label: 'Postal Code',
-                  onSaved: (e) {},
-                  validator: (e) {},
-                  hintText: 'Enter Postal Code',
-                  filled: true),
-              const Spacer(),
-              CommonButton(
-                  onTap: () {
-                    Get.toNamed(Routes.educationRoute);
-                  },
-                  text: 'Continue',
-                  isItalicText: false,
-                  isFilled: true,
-                  hasIcon: false),
-              SizedBox(
-                height: 30.h,
-              ),
-            ],
+                  onChange: (e) {},
+                  hintText: 'Select Country',
+                ),
+                SizedBox(
+                  height: 16.h,
+                ),
+                CommonTextFieldWithLabel(
+                    contentPadding:
+                        EdgeInsets.symmetric(vertical: 12.h, horizontal: 16.w),
+                    label: 'Street Address',
+                    onSaved: (e) {},
+                    validator: (e) {},
+                    hintText: 'Address',
+                    filled: true),
+                SizedBox(
+                  height: 16.h,
+                ),
+                CommonTextFieldWithLabel(
+                    contentPadding:
+                        EdgeInsets.symmetric(vertical: 12.h, horizontal: 16.w),
+                    label: 'City, State',
+                    onSaved: (e) {},
+                    validator: (e) {},
+                    hintText: 'Enter City, State',
+                    filled: true),
+                SizedBox(
+                  height: 16.h,
+                ),
+                CommonTextFieldWithLabel(
+                    contentPadding:
+                        EdgeInsets.symmetric(vertical: 12.h, horizontal: 16.w),
+                    label: 'Postal Code',
+                    onSaved: (e) {},
+                    validator: (e) {},
+                    hintText: 'Enter Postal Code',
+                    filled: true),
+                const Spacer(),
+                CommonButton(
+                    onTap: () {
+                      Get.toNamed(Routes.educationRoute);
+                    },
+                    text: 'Continue',
+                    isItalicText: false,
+                    isFilled: true,
+                    hasIcon: false),
+                SizedBox(
+                  height: 30.h,
+                ),
+              ],
+            ),
           ),
         ),
       ),

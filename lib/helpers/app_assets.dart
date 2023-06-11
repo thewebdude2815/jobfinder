@@ -68,6 +68,7 @@ class AppAssets {
   static const video2Icon = '$iconAddress/video2.svg';
   static const imageIcon = '$iconAddress/image.svg';
   static const zoomIcon = '$iconAddress/zoom.svg';
+  static const deleteIcon = '$iconAddress/delete.svg';
 
   // images
   static const onboardingA = '$imagesAddress/onboardingA.png';
@@ -77,4 +78,5 @@ class AppAssets {
   static const korea = '$imagesAddress/korea.jpg';
   static const gTranslate = '$imagesAddress/gtranslate.png';
   static const banner = '$imagesAddress/banner.png';
+  static const jp = '$imagesAddress/jp.png';
 }

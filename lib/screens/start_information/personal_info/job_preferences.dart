@@ -36,81 +36,84 @@ class _JobPreferencesState extends State<JobPreferences> {
             )
           ]),
       body: SafeArea(
-        child: Padding(
+        child: SingleChildScrollView(
           padding: EdgeInsets.symmetric(horizontal: 32.w),
-          child: Column(
-            children: [
-              SizedBox(
-                height: 16.h,
-              ),
-              const CustomStepper(
-                index: 5,
-                completedIndexes: [1, 2, 3, 4],
-              ),
-              SizedBox(
-                height: 24.h,
-              ),
-              CommonTextFieldWithLabel(
-                  contentPadding:
-                      EdgeInsets.symmetric(vertical: 12.h, horizontal: 16.w),
-                  label: 'Job Categories',
+          child: SizedBox(
+            height: 700.h,
+            child: Column(
+              children: [
+                SizedBox(
+                  height: 16.h,
+                ),
+                const CustomStepper(
+                  index: 5,
+                  completedIndexes: [1, 2, 3, 4],
+                ),
+                SizedBox(
+                  height: 24.h,
+                ),
+                CommonTextFieldWithLabel(
+                    contentPadding:
+                        EdgeInsets.symmetric(vertical: 12.h, horizontal: 16.w),
+                    label: 'Job Categories',
+                    onSaved: (e) {},
+                    validator: (e) {},
+                    hintText: 'Job Categories',
+                    filled: true),
+                SizedBox(
+                  height: 16.h,
+                ),
+                CommonDropdownButton(
+                  label: 'Pay Day',
+                  items: const ['Once A Month', 'Once A Week'],
                   onSaved: (e) {},
-                  validator: (e) {},
-                  hintText: 'Job Categories',
-                  filled: true),
-              SizedBox(
-                height: 16.h,
-              ),
-              CommonDropdownButton(
-                label: 'Pay Day',
-                items: const ['Once A Month', 'Once A Week'],
-                onSaved: (e) {},
-                onChange: (e) {},
-                hintText: 'Select Pay Day',
-              ),
-              SizedBox(
-                height: 16.h,
-              ),
-              Row(
-                children: [
-                  Expanded(
-                    child: CommonTextFieldWithLabel(
-                        contentPadding: EdgeInsets.symmetric(
-                            vertical: 12.h, horizontal: 16.w),
-                        label: 'Min',
-                        onSaved: (e) {},
-                        validator: (e) {},
-                        hintText: 'Enter min',
-                        filled: true),
-                  ),
-                  SizedBox(
-                    width: 16.h,
-                  ),
-                  Expanded(
-                    child: CommonTextFieldWithLabel(
-                        contentPadding: EdgeInsets.symmetric(
-                            vertical: 12.h, horizontal: 16.w),
-                        label: 'Max',
-                        onSaved: (e) {},
-                        validator: (e) {},
-                        hintText: 'Enter max',
-                        filled: true),
-                  ),
-                ],
-              ),
-              const Spacer(),
-              CommonButton(
-                  onTap: () {
-                    Get.toNamed(Routes.interestsRoute);
-                  },
-                  text: 'Done',
-                  isItalicText: false,
-                  isFilled: true,
-                  hasIcon: false),
-              SizedBox(
-                height: 30.h,
-              ),
-            ],
+                  onChange: (e) {},
+                  hintText: 'Select Pay Day',
+                ),
+                SizedBox(
+                  height: 16.h,
+                ),
+                Row(
+                  children: [
+                    Expanded(
+                      child: CommonTextFieldWithLabel(
+                          contentPadding: EdgeInsets.symmetric(
+                              vertical: 12.h, horizontal: 16.w),
+                          label: 'Min',
+                          onSaved: (e) {},
+                          validator: (e) {},
+                          hintText: 'Enter min',
+                          filled: true),
+                    ),
+                    SizedBox(
+                      width: 16.h,
+                    ),
+                    Expanded(
+                      child: CommonTextFieldWithLabel(
+                          contentPadding: EdgeInsets.symmetric(
+                              vertical: 12.h, horizontal: 16.w),
+                          label: 'Max',
+                          onSaved: (e) {},
+                          validator: (e) {},
+                          hintText: 'Enter max',
+                          filled: true),
+                    ),
+                  ],
+                ),
+                const Spacer(),
+                CommonButton(
+                    onTap: () {
+                      Get.toNamed(Routes.interestsRoute);
+                    },
+                    text: 'Done',
+                    isItalicText: false,
+                    isFilled: true,
+                    hasIcon: false),
+                SizedBox(
+                  height: 30.h,
+                ),
+              ],
+            ),
           ),
         ),
       ),
