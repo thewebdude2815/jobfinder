@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/get_navigation.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:jobfinder/helpers/app_assets.dart';
 import 'package:jobfinder/helpers/app_colors.dart';
 import 'package:jobfinder/helpers/app_text_style.dart';
+import 'package:jobfinder/helpers/routes.dart';
 import 'package:jobfinder/screens/components/profile_scrap_widget.dart';
 
 class Profile extends StatelessWidget {
@@ -114,7 +117,7 @@ class Profile extends StatelessWidget {
                                     fontSize: 20.sp,
                                     fontWeight: FontWeight.w600)),
                             Text(
-                              'Followers',
+                              'Scraped',
                               style: AppTextStyle.bodyNormal13
                                   .copyWith(color: const Color(0xFF434343)),
                             ),
@@ -128,19 +131,51 @@ class Profile extends StatelessWidget {
                         thickness: 2,
                       ),
                       Expanded(
-                        child: Column(
-                          children: [
-                            Text('1',
-                                style: GoogleFonts.poppins(
-                                    color: AppColors.kPurple3Color,
-                                    fontSize: 20.sp,
-                                    fontWeight: FontWeight.w600)),
-                            Text(
-                              'Following',
-                              style: AppTextStyle.bodyNormal13
-                                  .copyWith(color: const Color(0xFF434343)),
-                            ),
-                          ],
+                        child: GestureDetector(
+                          onTap: () {
+                            Get.toNamed(Routes.followerRoute);
+                          },
+                          child: Column(
+                            children: [
+                              Text('1,000',
+                                  style: GoogleFonts.poppins(
+                                      color: AppColors.kPurple3Color,
+                                      fontSize: 20.sp,
+                                      fontWeight: FontWeight.w600)),
+                              Text(
+                                'Followers',
+                                style: AppTextStyle.bodyNormal13
+                                    .copyWith(color: const Color(0xFF434343)),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      const VerticalDivider(
+                        indent: 10,
+                        endIndent: 10,
+                        color: AppColors.kGrayColor9,
+                        thickness: 2,
+                      ),
+                      Expanded(
+                        child: GestureDetector(
+                          onTap: () {
+                            Get.toNamed(Routes.followingRoute);
+                          },
+                          child: Column(
+                            children: [
+                              Text('1',
+                                  style: GoogleFonts.poppins(
+                                      color: AppColors.kPurple3Color,
+                                      fontSize: 20.sp,
+                                      fontWeight: FontWeight.w600)),
+                              Text(
+                                'Following',
+                                style: AppTextStyle.bodyNormal13
+                                    .copyWith(color: const Color(0xFF434343)),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ],

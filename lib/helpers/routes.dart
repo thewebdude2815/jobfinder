@@ -1,4 +1,5 @@
 import 'package:get/get_navigation/src/routes/get_route.dart';
+import 'package:jobfinder/screens/account/blocked_user.dart';
 import 'package:jobfinder/screens/account/change_password.dart';
 import 'package:jobfinder/screens/account/change_password_success.dart';
 import 'package:jobfinder/screens/account/job_finding_by_map.dart';
@@ -28,6 +29,7 @@ import 'package:jobfinder/screens/company_information/company_preferences.dart';
 import 'package:jobfinder/screens/daily_life/block_success.dart';
 import 'package:jobfinder/screens/daily_life/compose.dart';
 import 'package:jobfinder/screens/daily_life/follower.dart';
+import 'package:jobfinder/screens/daily_life/following.dart';
 import 'package:jobfinder/screens/daily_life/posts.dart';
 import 'package:jobfinder/screens/daily_life/report_success.dart';
 import 'package:jobfinder/screens/daily_life/searchUser.dart';
@@ -125,6 +127,9 @@ class Routes {
   static String blockSuccessRoute = '/blockSuccess';
   static String jobFindingByMapRoute = '/jobFindingByMap';
   static String appLanguageRoute = '/appLanguage';
+  static String followingRoute = '/following';
+
+  static String blockedUserSettingsRoute = '/blockedUserSettings';
 
   static List<GetPage> getPages = [
     GetPage(
@@ -374,6 +379,14 @@ class Routes {
     GetPage(
       name: appLanguageRoute,
       page: () => const AppLanguage(),
+    ),
+    GetPage(
+      name: followingRoute,
+      page: () => const Followings(),
+    ),
+    GetPage(
+      name: blockedUserSettingsRoute,
+      page: () => const BlockedUserSettings(),
     ),
   ];
 }

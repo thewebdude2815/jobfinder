@@ -89,9 +89,14 @@ class _SettingsState extends State<Settings> {
                   SizedBox(
                     height: 12.h,
                   ),
-                  const SettingsOptionWidget(
-                    icon: AppAssets.handIcon,
-                    text: 'Blocked User Settings',
+                  GestureDetector(
+                    onTap: () {
+                      Get.toNamed(Routes.blockedUserSettingsRoute);
+                    },
+                    child: const SettingsOptionWidget(
+                      icon: AppAssets.handIcon,
+                      text: 'Blocked User Settings',
+                    ),
                   ),
                   SizedBox(
                     height: 12.h,
