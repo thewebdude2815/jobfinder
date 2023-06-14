@@ -122,6 +122,7 @@ class SearchUser extends StatelessWidget {
                   itemBuilder: (context, index) {
                     return UsersWidget(
                       followers: '104',
+                      isSelected: false,
                       name: 'borage',
                       posts: '30',
                       onTap: () {},

@@ -30,6 +30,7 @@ class Followings extends StatelessWidget {
                       name: 'borage',
                       posts: '30',
                       onTap: () {},
+                      isSelected: false,
                     );
                   }),
               SizedBox(
